@@ -1,4 +1,5 @@
 <?php
+
 /**
  * wp-tailwind functions and definitions
  *
@@ -7,7 +8,7 @@
  * @package wp-tailwind
  */
 
-if ( ! defined( 'WP_TAILWIND_VERSION' ) ) {
+if (! defined('WP_TAILWIND_VERSION')) {
 	/*
 	 * Set the theme’s version number.
 	 *
@@ -15,10 +16,10 @@ if ( ! defined( 'WP_TAILWIND_VERSION' ) ) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define( 'WP_TAILWIND_VERSION', '0.1.0' );
+	define('WP_TAILWIND_VERSION', '0.1.0');
 }
 
-if ( ! defined( 'WP_TAILWIND_TYPOGRAPHY_CLASSES' ) ) {
+if (! defined('WP_TAILWIND_TYPOGRAPHY_CLASSES')) {
 	/*
 	 * Set Tailwind Typography classes for the front end, block editor and
 	 * classic editor using the constant below.
@@ -42,7 +43,7 @@ if ( ! defined( 'WP_TAILWIND_TYPOGRAPHY_CLASSES' ) ) {
 	);
 }
 
-if ( ! function_exists( 'wp_tailwind_setup' ) ) :
+if (! function_exists('wp_tailwind_setup')) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -50,17 +51,18 @@ if ( ! function_exists( 'wp_tailwind_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function wp_tailwind_setup() {
+	function wp_tailwind_setup()
+	{
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on wp-tailwind, use a find and replace
 		 * to change 'wp-tailwind' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'wp-tailwind', get_template_directory() . '/languages' );
+		load_theme_textdomain('wp-tailwind', get_template_directory() . '/languages');
 
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('automatic-feed-links');
 
 		/*
 		 * Let WordPress manage the document title.
@@ -68,20 +70,20 @@ if ( ! function_exists( 'wp_tailwind_setup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+		add_theme_support('title-tag');
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support('post-thumbnails');
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'menu-1' => __( 'Primary', 'wp-tailwind' ),
-				'menu-2' => __( 'Footer Menu', 'wp-tailwind' ),
+				'menu-1' => __('Primary', 'wp-tailwind'),
+				'menu-2' => __('Footer Menu', 'wp-tailwind'),
 			)
 		);
 
@@ -103,35 +105,36 @@ if ( ! function_exists( 'wp_tailwind_setup' ) ) :
 		);
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support('customize-selective-refresh-widgets');
 
 		// Add support for editor styles.
-		add_theme_support( 'editor-styles' );
+		add_theme_support('editor-styles');
 
 		// Enqueue editor styles.
-		add_editor_style( 'style-editor.css' );
-		add_editor_style( 'style-editor-extra.css' );
+		add_editor_style('style-editor.css');
+		add_editor_style('style-editor-extra.css');
 
 		// Add support for responsive embedded content.
-		add_theme_support( 'responsive-embeds' );
+		add_theme_support('responsive-embeds');
 
 		// Remove support for block templates.
-		remove_theme_support( 'block-templates' );
+		remove_theme_support('block-templates');
 	}
 endif;
-add_action( 'after_setup_theme', 'wp_tailwind_setup' );
+add_action('after_setup_theme', 'wp_tailwind_setup');
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function wp_tailwind_widgets_init() {
+function wp_tailwind_widgets_init()
+{
 	register_sidebar(
 		array(
-			'name'          => __( 'Footer', 'wp-tailwind' ),
+			'name'          => __('Footer', 'wp-tailwind'),
 			'id'            => 'sidebar-1',
-			'description'   => __( 'Add widgets here to appear in your footer.', 'wp-tailwind' ),
+			'description'   => __('Add widgets here to appear in your footer.', 'wp-tailwind'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -139,26 +142,28 @@ function wp_tailwind_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'wp_tailwind_widgets_init' );
+add_action('widgets_init', 'wp_tailwind_widgets_init');
 
 /**
  * Enqueue scripts and styles.
  */
-function wp_tailwind_scripts() {
-	wp_enqueue_style( 'wp-tailwind-style', get_stylesheet_uri(), array(), WP_TAILWIND_VERSION );
-	wp_enqueue_script( 'wp-tailwind-script', get_template_directory_uri() . '/js/script.min.js', array(), WP_TAILWIND_VERSION, true );
+function wp_tailwind_scripts()
+{
+	wp_enqueue_style('wp-tailwind-style', get_stylesheet_uri(), array(), WP_TAILWIND_VERSION);
+	wp_enqueue_script('wp-tailwind-script', get_template_directory_uri() . '/js/script.min.js', array(), WP_TAILWIND_VERSION, true);
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'wp_tailwind_scripts' );
+add_action('wp_enqueue_scripts', 'wp_tailwind_scripts');
 
 /**
  * Enqueue the block editor script.
  */
-function wp_tailwind_enqueue_block_editor_script() {
-	if ( is_admin() ) {
+function wp_tailwind_enqueue_block_editor_script()
+{
+	if (is_admin()) {
 		wp_enqueue_script(
 			'wp-tailwind-editor',
 			get_template_directory_uri() . '/js/block-editor.min.js',
@@ -169,10 +174,10 @@ function wp_tailwind_enqueue_block_editor_script() {
 			WP_TAILWIND_VERSION,
 			true
 		);
-		wp_add_inline_script( 'wp-tailwind-editor', "tailwindTypographyClasses = '" . esc_attr( WP_TAILWIND_TYPOGRAPHY_CLASSES ) . "'.split(' ');", 'before' );
+		wp_add_inline_script('wp-tailwind-editor', "tailwindTypographyClasses = '" . esc_attr(WP_TAILWIND_TYPOGRAPHY_CLASSES) . "'.split(' ');", 'before');
 	}
 }
-add_action( 'enqueue_block_assets', 'wp_tailwind_enqueue_block_editor_script' );
+add_action('enqueue_block_assets', 'wp_tailwind_enqueue_block_editor_script');
 
 /**
  * Add the Tailwind Typography classes to TinyMCE.
@@ -180,11 +185,12 @@ add_action( 'enqueue_block_assets', 'wp_tailwind_enqueue_block_editor_script' );
  * @param array $settings TinyMCE settings.
  * @return array
  */
-function wp_tailwind_tinymce_add_class( $settings ) {
+function wp_tailwind_tinymce_add_class($settings)
+{
 	$settings['body_class'] = WP_TAILWIND_TYPOGRAPHY_CLASSES;
 	return $settings;
 }
-add_filter( 'tiny_mce_before_init', 'wp_tailwind_tinymce_add_class' );
+add_filter('tiny_mce_before_init', 'wp_tailwind_tinymce_add_class');
 
 /**
  * Custom template tags for this theme.
@@ -195,3 +201,17 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+/** 
+ * Custom Functions
+ */
+
+// Path to the subfolder
+$function_files = glob(get_template_directory() . '/inc/custom-functions/*.php');
+
+// Include each file
+if ($function_files) {
+	foreach ($function_files as $file) {
+		require_once $file;
+	}
+}
