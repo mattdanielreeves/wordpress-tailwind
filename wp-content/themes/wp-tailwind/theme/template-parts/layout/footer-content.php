@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying the footer content
  *
@@ -11,14 +12,14 @@
 
 <footer id="colophon">
 
-	<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-		<aside role="complementary" aria-label="<?php esc_attr_e( 'Footer', 'wp-tailwind' ); ?>">
-			<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<?php if (is_active_sidebar('sidebar-1')) : ?>
+		<aside role="complementary" aria-label="<?php esc_attr_e('Footer', 'wp-tailwind '); ?>">
+			<?php dynamic_sidebar('sidebar-1'); ?>
 		</aside>
 	<?php endif; ?>
 
-	<?php if ( has_nav_menu( 'menu-2' ) ) : ?>
-		<nav aria-label="<?php esc_attr_e( 'Footer Menu', 'wp-tailwind' ); ?>">
+	<?php if (has_nav_menu('menu-2')) : ?>
+		<nav aria-label="<?php esc_attr_e('Footer Menu', 'wp-tailwind'); ?>">
 			<?php
 			wp_nav_menu(
 				array(
@@ -33,17 +34,17 @@
 
 	<div>
 		<?php
-		$wp_tailwind_blog_info = get_bloginfo( 'name' );
-		if ( ! empty( $wp_tailwind_blog_info ) ) :
-			?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>,
-			<?php
+		$wp_tailwind_blog_info = get_bloginfo('name');
+		if (! empty($wp_tailwind_blog_info)) :
+		?>
+			<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>,
+		<?php
 		endif;
 
 		/* translators: 1: WordPress link, 2: WordPress. */
 		printf(
 			'<a href="%1$s">proudly powered by %2$s</a>.',
-			esc_url( __( 'https://wordpress.org/', 'wp-tailwind' ) ),
+			esc_url(__('https://wordpress.org/', 'wp-tailwind')),
 			'WordPress'
 		);
 		?>

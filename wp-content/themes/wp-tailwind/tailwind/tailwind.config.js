@@ -26,8 +26,8 @@ module.exports = {
 		require('@_tw/themejson'),
 
 		// Uncomment below to add additional first-party Tailwind plugins.
-		// require('@tailwindcss/forms'),
-		// require('@tailwindcss/aspect-ratio'),
-		// require('@tailwindcss/container-queries'),
+		require('@tailwindcss/forms'),
+		require('@tailwindcss/aspect-ratio'),
+		require('@tailwindcss/container-queries'),
 	],
 };
