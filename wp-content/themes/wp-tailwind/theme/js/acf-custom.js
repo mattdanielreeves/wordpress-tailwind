@@ -1,36 +1,55 @@
 (function ($) {
-  // Function to disable already selected options in other flexible layouts
-  function updateHeaderOptions() {
-    let selectedValues = [];
+  // Function to check and disable options in the header layouts
+  function checkHeaderSelectFields() {
+    let frontSelected = false;
+    let innerSelected = false;
 
-    // Loop through all header layout select fields with data-name="usage"
-    $('.acf-field[data-name="usage"] select').each(function () {
+    // Iterate over each "header" layout select field
+    $('.acf-flexible-content .layout[data-layout="header"] .acf-field-select select').each(function () {
       let selectedValue = $(this).val();
 
-      if (selectedValue === 'homepage' || selectedValue === 'inner_pages') {
-        selectedValues.push(selectedValue);
+      // If "front" is selected, mark it and disable it in other instances
+      if (selectedValue === 'front') {
+        frontSelected = true;
+      }
+
+      // If "inner" is selected, mark it and disable it in other instances
+      if (selectedValue === 'inner') {
+        innerSelected = true;
       }
     });
 
-    // Loop through all header layout select fields again and disable the options
-    $('.acf-field[data-name="usage"] select').each(function () {
+    // Iterate over each "header" layout select field again to disable the options
+    $('.acf-flexible-content .layout[data-layout="header"] .acf-field-select select').each(function () {
       let $select = $(this);
-      let currentValue = $select.val();
 
       // Enable all options first
       $select.find('option').prop('disabled', false);
 
-      // Disable options that are already selected in other layouts
-      selectedValues.forEach(function (value) {
-        if (value !== currentValue) {
-          $select.find('option[value="' + value + '"]').prop('disabled', true);
-        }
-      });
+      // Disable "front" option if already selected in another instance
+      if (frontSelected && $select.val() !== 'front') {
+        $select.find('option[value="front"]').prop('disabled', true);
+      }
+
+      // Disable "inner" option if already selected in another instance
+      if (innerSelected && $select.val() !== 'inner') {
+        $select.find('option[value="inner"]').prop('disabled', true);
+      }
     });
   }
 
-  // Trigger update on page load and when a header option changes
-  $(document).on('acf/input/change', '.acf-field[data-name="usage"] select', updateHeaderOptions);
-  $(document).ready(updateHeaderOptions);
+  // Run check when the page loads
+  $(document).ready(function () {
+    checkHeaderSelectFields();
+  });
 
+  // Run check when a new flexible content layout is added
+  $(document).on('acf/append', function (e, $el) {
+    checkHeaderSelectFields();
+  });
+
+  // Run check when a select field value changes
+  $(document).on('change', '.acf-flexible-content .layout[data-layout="header"] .acf-field-select select', function () {
+    checkHeaderSelectFields();
+  });
 })(jQuery);

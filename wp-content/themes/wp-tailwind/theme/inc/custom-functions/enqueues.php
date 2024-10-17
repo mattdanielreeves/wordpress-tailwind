@@ -32,7 +32,13 @@ function enqueue_acf_options_page_script() {
   // Replace 'your-options-page-slug' with your actual ACF options page slug
   if ($screen && strpos($screen->id, 'site-settings_page_acf-options-header') !== false) {
       // Enqueue the script
-      wp_enqueue_script('acf-custom-js', get_stylesheet_directory_uri() . '/js/acf-custom.js', array('jquery'), null, true);
+      wp_enqueue_script(
+        'acf-custom-js',
+        get_theme_file_uri('/js/acf-custom.js'),
+        array('jquery'),
+        null,
+        true
+    );
   }
 }
 add_action('acf/input/admin_enqueue_scripts', 'enqueue_acf_options_page_script');

@@ -1,11 +1,11 @@
 {
     "key": "group_670f4f3873a27",
-    "title": "Header & Footer Options",
+    "title": "Header Options",
     "fields": [
         {
             "key": "field_670f4f38fa7a7",
-            "label": "Global Rows",
-            "name": "global_rows",
+            "label": "Headers",
+            "name": "headers",
             "aria-label": "",
             "type": "flexible_content",
             "instructions": "",
@@ -84,6 +84,7 @@
                                 "id": ""
                             },
                             "choices": {
+                                "Choose a style": "Choose a style",
                                 "front": "Homepage",
                                 "inner": "Inner Pages",
                                 "select": "Select Pages"
@@ -136,65 +137,6 @@
                                     "max_size": "",
                                     "mime_types": "",
                                     "preview_size": "medium"
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_671010bafa7ab",
-                            "label": "CTA",
-                            "name": "cta",
-                            "aria-label": "",
-                            "type": "group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_6710111dfa7ac",
-                                    "label": "Buttons",
-                                    "name": "buttons",
-                                    "aria-label": "",
-                                    "type": "repeater",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "layout": "table",
-                                    "pagination": 0,
-                                    "min": 1,
-                                    "max": 0,
-                                    "collapsed": "",
-                                    "button_label": "Add Row",
-                                    "rows_per_page": 20,
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_67101187fa7ad",
-                                            "label": "Button",
-                                            "name": "button",
-                                            "aria-label": "",
-                                            "type": "link",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "return_format": "array",
-                                            "parent_repeater": "field_6710111dfa7ac"
-                                        }
-                                    ]
                                 }
                             ]
                         },
@@ -274,23 +216,13 @@
                                     "elements": ""
                                 }
                             ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_67101315fa7b3": {
-                    "key": "layout_67101315fa7b3",
-                    "name": "footer",
-                    "label": "Footer",
-                    "display": "block",
-                    "sub_fields": [
+                        },
                         {
-                            "key": "field_67102d0c03598",
-                            "label": "Footer Columns",
-                            "name": "footer_columns",
+                            "key": "field_671010bafa7ab",
+                            "label": "CTA",
+                            "name": "cta",
                             "aria-label": "",
-                            "type": "repeater",
+                            "type": "group",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -299,19 +231,14 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "table",
-                            "min": 0,
-                            "max": 0,
-                            "collapsed": "",
-                            "button_label": "Add Column",
-                            "rows_per_page": 20,
+                            "layout": "block",
                             "sub_fields": [
                                 {
-                                    "key": "field_67102d4403599",
-                                    "label": "Column",
-                                    "name": "footer_content",
+                                    "key": "field_6710111dfa7ac",
+                                    "label": "Buttons",
+                                    "name": "buttons",
                                     "aria-label": "",
-                                    "type": "flexible_content",
+                                    "type": "repeater",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -320,107 +247,32 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "layouts": {
-                                        "layout_67102d49ada8b": {
-                                            "key": "layout_67102d49ada8b",
-                                            "name": "logo",
-                                            "label": "Logo",
-                                            "display": "block",
-                                            "sub_fields": [
-                                                {
-                                                    "key": "field_67101320fa7b5",
-                                                    "label": "Branding",
-                                                    "name": "branding",
-                                                    "aria-label": "",
-                                                    "type": "group",
-                                                    "instructions": "",
-                                                    "required": 0,
-                                                    "conditional_logic": 0,
-                                                    "wrapper": {
-                                                        "width": "",
-                                                        "class": "",
-                                                        "id": ""
-                                                    },
-                                                    "layout": "",
-                                                    "sub_fields": [
-                                                        {
-                                                            "key": "field_67102593cb869",
-                                                            "label": "Footer Logo",
-                                                            "name": "footer_logo",
-                                                            "aria-label": "",
-                                                            "type": "image",
-                                                            "instructions": "",
-                                                            "required": 0,
-                                                            "conditional_logic": 0,
-                                                            "wrapper": {
-                                                                "width": "",
-                                                                "class": "",
-                                                                "id": ""
-                                                            },
-                                                            "return_format": "array",
-                                                            "library": "all",
-                                                            "min_width": "",
-                                                            "min_height": "",
-                                                            "min_size": "",
-                                                            "max_width": "",
-                                                            "max_height": "",
-                                                            "max_size": "",
-                                                            "mime_types": "",
-                                                            "preview_size": "medium"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "min": "",
-                                            "max": ""
-                                        },
-                                        "layout_67102db80359a": {
-                                            "key": "layout_67102db80359a",
-                                            "name": "navigation",
-                                            "label": "Navigation",
-                                            "display": "block",
-                                            "sub_fields": [
-                                                {
-                                                    "key": "field_67102db8035a0",
-                                                    "label": "Navigation",
-                                                    "name": "footer_navigation",
-                                                    "aria-label": "",
-                                                    "type": "relationship",
-                                                    "instructions": "",
-                                                    "required": 0,
-                                                    "conditional_logic": 0,
-                                                    "wrapper": {
-                                                        "width": "",
-                                                        "class": "",
-                                                        "id": ""
-                                                    },
-                                                    "post_type": [
-                                                        "post",
-                                                        "page"
-                                                    ],
-                                                    "post_status": [
-                                                        "publish"
-                                                    ],
-                                                    "taxonomy": "",
-                                                    "filters": [
-                                                        "search",
-                                                        "post_type",
-                                                        "taxonomy"
-                                                    ],
-                                                    "return_format": "object",
-                                                    "min": "",
-                                                    "max": "",
-                                                    "elements": ""
-                                                }
-                                            ],
-                                            "min": "",
-                                            "max": ""
+                                    "layout": "table",
+                                    "pagination": 0,
+                                    "min": 1,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Add Row",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_67101187fa7ad",
+                                            "label": "Button",
+                                            "name": "button",
+                                            "aria-label": "",
+                                            "type": "link",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array",
+                                            "parent_repeater": "field_6710111dfa7ac"
                                         }
-                                    },
-                                    "min": "",
-                                    "max": "",
-                                    "button_label": "Add Item",
-                                    "parent_repeater": "field_67102d0c03598"
+                                    ]
                                 }
                             ]
                         }
@@ -441,13 +293,6 @@
                 "operator": "==",
                 "value": "acf-options-header"
             }
-        ],
-        [
-            {
-                "param": "options_page",
-                "operator": "==",
-                "value": "acf-options-footer"
-            }
         ]
     ],
     "menu_order": 0,
@@ -459,5 +304,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729124277
+    "modified": 1729133967
 }
