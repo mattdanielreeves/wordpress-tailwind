@@ -1,28 +1,7 @@
 {
     "key": "group_670827c9f1324",
-    "title": "Block: Main Content",
-    "fields": [
-        {
-            "key": "field_6708280c38682",
-            "label": "Test field field",
-            "name": "test_field",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        }
-    ],
+    "title": "Main Content",
+    "fields": [],
     "location": [
         [
             {
@@ -41,5 +20,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728587890
+    "modified": 1729054202
 }

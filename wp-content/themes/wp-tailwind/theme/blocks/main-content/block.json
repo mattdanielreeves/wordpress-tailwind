@@ -13,9 +13,10 @@
   "apiVersion": 2,
   "acf": {
     "mode": "preview",
-    "renderTemplate": "block.php"
+    "renderTemplate": "main-content.php"
   },
   "supports": {
+    "jsx": true,
     "anchor": true,
     "align": true,
     "alignText": true,
@@ -29,6 +30,10 @@
       "background": true,
       "text": true,
       "link": false
+    },
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true
     }
   }
 }

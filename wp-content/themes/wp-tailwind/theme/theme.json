@@ -33,8 +33,8 @@
 			]
 		},
 		"layout": {
-			"contentSize": "40rem",
-			"wideSize": "60rem"
+			"contentSize": "80vw",
+			"wideSize": "90vw"
 		}
 	}
 }

@@ -1,23 +1,13 @@
-/**
- * Front-end JavaScript
- *
- * The JavaScript code you place here will be processed by esbuild. The output
- * file will be created at `../theme/js/script.min.js` and enqueued in
- * `../theme/functions.php`.
- *
- * For esbuild documentation, please see:
- * https://esbuild.github.io/
- */
 (function ($) {
   // Function to disable already selected options in other flexible layouts
   function updateHeaderOptions() {
     let selectedValues = [];
 
-    // Loop through all header layout select fields
+    // Loop through all header layout select fields with data-name="usage"
     $('.acf-field[data-name="usage"] select').each(function () {
       let selectedValue = $(this).val();
 
-      if (selectedValue === 'front' || selectedValue === 'inner') {
+      if (selectedValue === 'homepage' || selectedValue === 'inner_pages') {
         selectedValues.push(selectedValue);
       }
     });
@@ -43,4 +33,4 @@
   $(document).on('acf/input/change', '.acf-field[data-name="usage"] select', updateHeaderOptions);
   $(document).ready(updateHeaderOptions);
 
-})(jQuery); 
+})(jQuery);
