@@ -187,56 +187,15 @@ function mdr_get_half_image_width($image_field, $layout_count)
     return null;
 }
 
-// Get Gutenberg colors into ACF
+// Style ACF Layouts
+function my_custom_admin_styles() {
+    echo '<style>
 
-if ( ! defined( 'ABSPATH' ) ) {
-  exit; // Exit if accessed directly
+        .acf-flexible-content .layout:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+
+    </style>';
 }
-
-if ( ! defined( 'MDR_COLOR_URL' ) ) {
-  define( 'MDR_COLOR_URL', plugin_dir_url( __FILE__ ) );
-}
-if ( ! defined( 'MDR_COLOR_PATH' ) ) {
-  define( 'MDR_COLOR_PATH', plugin_dir_path( __FILE__ ) );
-}
-
-function mdr_get_theme_colors() {
-
-  // Get colors palette registerd in theme support
-  $color_palette = get_theme_support( 'editor-color-palette' );
-
-  if ( ! empty( $color_palette ) ) {
-
-      // Get each 'color' value (hex code)
-      $colors = array_column( $color_palette[ 0 ], 'color' );
-      return $colors;
-
-  } else {
-
-      return false;
-
-  }
-
-}
-
-function mdr_acf_admin_footer() {
-
-  // Get colors palette registerd in theme support
-  $colors = mdr_get_theme_colors();
-
-  if ( $colors ) {
-      ?>
-      <script type="text/javascript">
-      if ( window.acf ) {
-          acf.add_filter( 'color_picker_args', function( args, field ) {
-              args.palettes = <?php echo json_encode( $colors ); ?>;
-              return args;
-          } );
-      }        
-      </script>
-      <?php
-  }
-  
-}
-
-add_action('acf/input/admin_footer', 'mdr_acf_admin_footer');
+add_action('admin_head', 'my_custom_admin_styles');

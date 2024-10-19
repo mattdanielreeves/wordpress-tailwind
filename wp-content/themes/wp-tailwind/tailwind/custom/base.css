@@ -18,3 +18,8 @@ body {
 h2.wp-block-heading {
 	color: currentColor;
 }
+
+.flex,
+.grid {
+	@apply gap-6;
+}

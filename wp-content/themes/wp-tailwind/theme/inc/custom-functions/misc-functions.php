@@ -27,3 +27,13 @@ function ip_admin_bar_what_template()
 }
 
 add_action('wp_before_admin_bar_render', 'ip_admin_bar_what_template');
+
+// Enable featured images on pages
+function mytheme_setup() {
+    // Add support for post thumbnails
+    add_theme_support('post-thumbnails');
+
+    // Add support for post thumbnails on pages
+    add_post_type_support('page', 'thumbnail');
+}
+add_action('after_setup_theme', 'mytheme_setup');

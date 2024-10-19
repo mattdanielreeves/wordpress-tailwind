@@ -12,7 +12,14 @@ module.exports = {
 	],
 	theme: {
 		// Extend the default Tailwind theme.
-		extend: {},
+		extend: {
+			maxWidth: {
+				'1/4': '25%',
+			},
+			gap: {
+				'standard-gap': '24px',
+			},
+		},
 	},
 	corePlugins: {
 		// Disable Preflight base styles in builds targeting the editor.

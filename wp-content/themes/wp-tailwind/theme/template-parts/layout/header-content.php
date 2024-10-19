@@ -6,42 +6,36 @@
  *
  * @package wp-tailwind
  */
-
 ?>
 
-<header id="masthead">
 
-	<div>
-		<?php
-		if ( is_front_page() ) :
+<header id="primary" class="grid grid-col-4 grid-flow-row auto-rows-auto auto-cols-fr">	
+	<?php
+			global $blockNumber;
+			$blockNumber = 0;
+
+			if ($blocks = get_field('header', 'option')):
+				while (have_rows('header', 'option')): the_row();
+					$blockNumber++;
+					$width = get_sub_field('width');
+	
+					$width_classes = [
+							'quarter' => 'col-span-1',
+							'half' => 'col-span-2',
+							'three-quarters' => 'col-span-3',
+							'full' => 'col-span-4',
+					];
+					
+					$width_class = $width_classes[$width] ?? '';
+					$template_name = get_row_layout();
+
+					get_template_part('template-parts/layout/layout', get_row_layout(), array(
+							'count' => $blockNumber,
+							'name' => $template_name,
+							'width' => $width_class,
+					));
+				endwhile;
+			endif;
 			?>
-			<h1><?php bloginfo( 'name' ); ?></h1>
-			<?php
-		else :
-			?>
-			<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-		endif;
+		</header>
 
-		$wp_tailwind_description = get_bloginfo( 'description', 'display' );
-		if ( $wp_tailwind_description || is_customize_preview() ) :
-			?>
-			<p><?php echo $wp_tailwind_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-		<?php endif; ?>
-	</div>
-
-	<nav id="site-navigation" aria-label="<?php esc_attr_e( 'Main Navigation', 'wp-tailwind' ); ?>">
-		<button aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'wp-tailwind' ); ?></button>
-
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-				'items_wrap'     => '<ul id="%1$s" class="%2$s" aria-label="submenu">%3$s</ul>',
-			)
-		);
-		?>
-	</nav><!-- #site-navigation -->
-
-</header><!-- #masthead -->
