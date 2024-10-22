@@ -3,6 +3,127 @@
     "title": "Header Options",
     "fields": [
         {
+            "key": "field_67153987829f6",
+            "label": "Announcements",
+            "name": "announcements",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_67101206fa7b0",
+                    "label": "Text",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_67101241fa7b1",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_671571683456d",
+                    "label": "Background Color",
+                    "name": "background_custom_colors",
+                    "aria-label": "",
+                    "type": "clone",
+                    "instructions": "Color Choices",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "field_671699bfb50a8"
+                    ],
+                    "display": "group",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0,
+                    "choices": {
+                        "tertiary": "Tertiary",
+                        "accent": "Accent",
+                        "highlight": "Highlight"
+                    }
+                },
+                {
+                    "key": "field_67174f4744cf6",
+                    "label": "Is Sticky",
+                    "name": "is_sticky",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                },
+                {
+                    "key": "field_67174f6d44cf7",
+                    "label": "Can Hide",
+                    "name": "can_hide",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                }
+            ]
+        },
+        {
             "key": "field_670f4f38fa7a7",
             "label": "Header",
             "name": "header",
@@ -17,52 +138,6 @@
                 "id": ""
             },
             "layouts": {
-                "layout_671011f6fa7ae": {
-                    "key": "layout_671011f6fa7ae",
-                    "name": "announcements",
-                    "label": "Announcements",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_67101206fa7b0",
-                            "label": "Text",
-                            "name": "text",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_67101241fa7b1",
-                            "label": "Link",
-                            "name": "link",
-                            "aria-label": "",
-                            "type": "link",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array"
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_670fe05c4d37e": {
                     "key": "layout_670fe05c4d37e",
                     "name": "branding",
@@ -147,7 +222,6 @@
                                 "id": ""
                             },
                             "choices": {
-                                "basic": "Basic",
                                 "standard": "Standard",
                                 "mega": "Mega Menu",
                                 "mobile": "Always Mobile"
@@ -161,53 +235,13 @@
                             "placeholder": ""
                         },
                         {
-                            "key": "field_67101330fa7b6",
-                            "label": "Basic Navigation (No Subnav)",
-                            "name": "header_navigation",
-                            "aria-label": "",
-                            "type": "relationship",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_67101057fa7a9",
-                                        "operator": "==",
-                                        "value": "basic"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "post_type": [
-                                "post",
-                                "page"
-                            ],
-                            "post_status": [
-                                "publish"
-                            ],
-                            "taxonomy": "",
-                            "filters": [
-                                "search",
-                                "post_type",
-                                "taxonomy"
-                            ],
-                            "return_format": "object",
-                            "min": "",
-                            "max": "",
-                            "elements": ""
-                        },
-                        {
                             "key": "field_6713fd2f3f895",
                             "label": "Standard Menu",
                             "name": "standard_menu",
                             "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
-                            "required": 0,
+                            "required": 1,
                             "conditional_logic": [
                                 [
                                     {
@@ -223,7 +257,7 @@
                                 "id": ""
                             },
                             "layout": "block",
-                            "min": 0,
+                            "min": 1,
                             "max": 0,
                             "collapsed": "",
                             "button_label": "Add Row",
@@ -254,7 +288,15 @@
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_67101057fa7a9",
+                                                "operator": "!=",
+                                                "value": "mega"
+                                            }
+                                        ]
+                                    ],
                                     "wrapper": {
                                         "width": "10",
                                         "class": "",
@@ -275,7 +317,15 @@
                                     "type": "relationship",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_67140652e5ee1",
+                                                "operator": "==",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -299,170 +349,206 @@
                                     "max": "",
                                     "elements": "",
                                     "parent_repeater": "field_6713fd2f3f895"
+                                },
+                                {
+                                    "key": "field_6716d223d3176",
+                                    "label": "Mega Menu",
+                                    "name": "mega_menu",
+                                    "aria-label": "",
+                                    "type": "flexible_content",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_67101057fa7a9",
+                                                "operator": "==",
+                                                "value": "mega"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layouts": {
+                                        "layout_6717306918452": {
+                                            "key": "layout_6717306918452",
+                                            "name": "info_section",
+                                            "label": "Info Section",
+                                            "display": "block",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_671735b744cf5",
+                                                    "label": "Position",
+                                                    "name": "position",
+                                                    "aria-label": "",
+                                                    "type": "radio",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "choices": {
+                                                        "left": "Left",
+                                                        "right": "Right"
+                                                    },
+                                                    "default_value": "",
+                                                    "return_format": "value",
+                                                    "allow_null": 0,
+                                                    "other_choice": 0,
+                                                    "layout": "vertical",
+                                                    "save_other_choice": 0
+                                                },
+                                                {
+                                                    "key": "field_6717308618457",
+                                                    "label": "Heading",
+                                                    "name": "heading",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                },
+                                                {
+                                                    "key": "field_6717317218458",
+                                                    "label": "Description",
+                                                    "name": "description",
+                                                    "aria-label": "",
+                                                    "type": "textarea",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "rows": "",
+                                                    "placeholder": "",
+                                                    "new_lines": ""
+                                                },
+                                                {
+                                                    "key": "field_6717318918459",
+                                                    "label": "Feature Image",
+                                                    "name": "feature_image",
+                                                    "aria-label": "",
+                                                    "type": "image",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "return_format": "array",
+                                                    "library": "all",
+                                                    "min_width": "",
+                                                    "min_height": "",
+                                                    "min_size": "",
+                                                    "max_width": "",
+                                                    "max_height": "",
+                                                    "max_size": "",
+                                                    "mime_types": "",
+                                                    "preview_size": "medium"
+                                                }
+                                            ],
+                                            "min": "",
+                                            "max": ""
+                                        },
+                                        "layout_6716d22c4561d": {
+                                            "key": "layout_6716d22c4561d",
+                                            "name": "menu",
+                                            "label": "Menu",
+                                            "display": "block",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_6716d239d3177",
+                                                    "label": "Links:",
+                                                    "name": "choose_links:",
+                                                    "aria-label": "",
+                                                    "type": "relationship",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "post_type": "",
+                                                    "post_status": [
+                                                        "publish"
+                                                    ],
+                                                    "taxonomy": "",
+                                                    "filters": [
+                                                        "search",
+                                                        "post_type",
+                                                        "taxonomy"
+                                                    ],
+                                                    "return_format": "object",
+                                                    "min": "",
+                                                    "max": "",
+                                                    "elements": ""
+                                                },
+                                                {
+                                                    "key": "field_67172d9518451",
+                                                    "label": "Style",
+                                                    "name": "content_style",
+                                                    "aria-label": "",
+                                                    "type": "select",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "choices": {
+                                                        "link_only": "Link Only",
+                                                        "with_icon": "With Icon",
+                                                        "with_image": "With Image",
+                                                        "with_excerpt": "With Excerpt",
+                                                        "with_image_excerpt": "Image and Excerpt",
+                                                        "with_image_excerpt_icon": "Icon, Image, and Excerpt"
+                                                    },
+                                                    "default_value": false,
+                                                    "return_format": "value",
+                                                    "multiple": 0,
+                                                    "allow_null": 0,
+                                                    "ui": 0,
+                                                    "ajax": 0,
+                                                    "placeholder": ""
+                                                }
+                                            ],
+                                            "min": "",
+                                            "max": ""
+                                        }
+                                    },
+                                    "min": "",
+                                    "max": "",
+                                    "button_label": "Add Row",
+                                    "parent_repeater": "field_6713fd2f3f895"
                                 }
                             ]
-                        },
-                        {
-                            "key": "field_6712a788fd2f6",
-                            "label": "Mega Menu",
-                            "name": "mega_menu",
-                            "aria-label": "",
-                            "type": "flexible_content",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_67101057fa7a9",
-                                        "operator": "==",
-                                        "value": "mega"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layouts": {
-                                "layout_6712e31dc9639": {
-                                    "key": "layout_6712e31dc9639",
-                                    "name": "content_column",
-                                    "label": "Content Column",
-                                    "display": "block",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_6712e33fd0eaf",
-                                            "label": "Parent Menu Item",
-                                            "name": "parent_menu_item",
-                                            "aria-label": "",
-                                            "type": "link",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "return_format": "array"
-                                        },
-                                        {
-                                            "key": "field_6712e3a4d0eb0",
-                                            "label": "Content Items",
-                                            "name": "content_items",
-                                            "aria-label": "",
-                                            "type": "flexible_content",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "layouts": {
-                                                "layout_6712ea4bd0eb5": {
-                                                    "key": "layout_6712ea4bd0eb5",
-                                                    "name": "submenu",
-                                                    "label": "Submenu",
-                                                    "display": "block",
-                                                    "sub_fields": [
-                                                        {
-                                                            "key": "field_6712ea54d0eb7",
-                                                            "label": "Submenu",
-                                                            "name": "submenu",
-                                                            "aria-label": "",
-                                                            "type": "clone",
-                                                            "instructions": "",
-                                                            "required": 0,
-                                                            "conditional_logic": 0,
-                                                            "wrapper": {
-                                                                "width": "",
-                                                                "class": "",
-                                                                "id": ""
-                                                            },
-                                                            "clone": [
-                                                                "field_67101330fa7b6"
-                                                            ],
-                                                            "display": "seamless",
-                                                            "layout": "block",
-                                                            "prefix_label": 0,
-                                                            "prefix_name": 0
-                                                        }
-                                                    ],
-                                                    "min": "",
-                                                    "max": ""
-                                                },
-                                                "layout_6712e3aaba1fb": {
-                                                    "key": "layout_6712e3aaba1fb",
-                                                    "name": "wysiwyg",
-                                                    "label": "WYSIWYG",
-                                                    "display": "block",
-                                                    "sub_fields": [
-                                                        {
-                                                            "key": "field_6712e4f3d0eb1",
-                                                            "label": "Freeform Content",
-                                                            "name": "freeform_content",
-                                                            "aria-label": "",
-                                                            "type": "wysiwyg",
-                                                            "instructions": "",
-                                                            "required": 0,
-                                                            "conditional_logic": 0,
-                                                            "wrapper": {
-                                                                "width": "",
-                                                                "class": "",
-                                                                "id": ""
-                                                            },
-                                                            "default_value": "",
-                                                            "tabs": "all",
-                                                            "toolbar": "full",
-                                                            "media_upload": 1,
-                                                            "delay": 0
-                                                        }
-                                                    ],
-                                                    "min": "",
-                                                    "max": ""
-                                                },
-                                                "layout_6712e7f3d0eb2": {
-                                                    "key": "layout_6712e7f3d0eb2",
-                                                    "name": "buttons",
-                                                    "label": "Buttons",
-                                                    "display": "block",
-                                                    "sub_fields": [
-                                                        {
-                                                            "key": "field_6712e981d0eb4",
-                                                            "label": "Button",
-                                                            "name": "button",
-                                                            "aria-label": "",
-                                                            "type": "link",
-                                                            "instructions": "",
-                                                            "required": 0,
-                                                            "conditional_logic": 0,
-                                                            "wrapper": {
-                                                                "width": "",
-                                                                "class": "",
-                                                                "id": ""
-                                                            },
-                                                            "return_format": "array"
-                                                        }
-                                                    ],
-                                                    "min": "",
-                                                    "max": ""
-                                                }
-                                            },
-                                            "min": "",
-                                            "max": "",
-                                            "button_label": "Add Row"
-                                        }
-                                    ],
-                                    "min": "",
-                                    "max": ""
-                                }
-                            },
-                            "min": "",
-                            "max": "",
-                            "button_label": "Add Row"
                         },
                         {
                             "key": "field_671157235a8af",
@@ -587,5 +673,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729365633
+    "modified": 1729580924
 }

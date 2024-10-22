@@ -188,7 +188,7 @@ function mdr_get_half_image_width($image_field, $layout_count)
 }
 
 // Style ACF Layouts
-function my_custom_admin_styles() {
+function mdr_custom_admin_styles() {
     echo '<style>
 
         .acf-flexible-content .layout:nth-child(odd) {
@@ -198,4 +198,98 @@ function my_custom_admin_styles() {
 
     </style>';
 }
-add_action('admin_head', 'my_custom_admin_styles');
+add_action('admin_head', 'mdr_custom_admin_styles');
+
+// Function to extract the color palette from theme settings
+function mdr_get_theme_colors()
+{
+    // Use WP_Theme_JSON_Resolver to get theme settings
+    $theme_settings = WP_Theme_JSON_Resolver::get_theme_data()->get_settings();
+
+    // Extract colors from the settings (adjust according to your theme.json structure)
+    $colors = $theme_settings['color']['palette']['theme'] ?? [];
+
+    // Prepare an array to hold the hexadecimal values of the colors
+    $color_palette = [];
+    foreach ($colors as $color) {
+        $color_palette[] = $color['color'];
+    }
+
+    return $color_palette;
+}
+
+// Inject custom JS to modify the ACF color picker
+add_action('acf/input/admin_footer', 'mdr_custom_acf_admin_footer_js');
+function mdr_custom_acf_admin_footer_js()
+{
+    $color_palette = mdr_get_theme_colors();
+    $json_palette = json_encode($color_palette);
+    ?>
+    <script type="text/javascript">
+        (function ($) {
+            acf.add_filter('color_picker_args', function (args, $field) {
+                // Add your colors here
+                args.palettes = <?php echo $json_palette ?>;
+                return args;
+            });
+        })(jQuery);
+    </script>
+    <?php
+}
+
+function mdr_get_theme_json_colors()
+{
+    // Use the WP_Theme_JSON_Resolver class to get the theme's settings
+    $theme_json_data = WP_Theme_JSON_Resolver::get_theme_data();
+    $settings = $theme_json_data->get_settings();
+    // Extract the color palette data
+    if (isset($settings['color']['palette']) && is_array($settings['color']['palette']['theme'])) {
+        return $settings['color']['palette']['theme'];
+    }
+    return [];
+}
+
+add_filter('acf/load_field', 'mdr_populate_acf_field_based_on_label');
+function mdr_populate_acf_field_based_on_label($field)
+{
+    // Define the specific label to look for
+    $target_description = 'Color Choices';
+    // Check if the field's description matches the target description
+    if (isset($field['instructions']) && $field['instructions'] === $target_description) {
+        // Populate the field if it matches
+        $colors = mdr_get_theme_json_colors();
+        $ignore_slugs = ['background', 'foreground', 'primary', 'secondary'];
+        $field['choices'] = [];
+        foreach ($colors as $color) {
+            if (isset($color['slug']) && isset($color['name']) && !in_array($color['slug'], $ignore_slugs)) {
+                $field['choices'][$color['slug']] = $color['name'];
+            }
+        }
+    }
+    return $field;
+}
+
+// Function to load theme.json colors into ACF color picker
+function populate_acf_color_picker_from_theme_json($field) {
+    // Get theme.json settings
+    $theme_colors = wp_get_global_settings(['color', 'palette']);
+
+    // Check if there are colors in the palette
+    if (!empty($theme_colors['theme'])) {
+        $colors = $theme_colors['theme'];
+
+        // Loop through each color in the palette and add to ACF color picker
+        $choices = [];
+        foreach ($colors as $color) {
+            $choices[$color['color']] = $color['name']; // Color code and label
+        }
+
+        // Populate the color picker field choices
+        $field['choices'] = $choices;
+    }
+
+    return $field;
+}
+
+// Hook the function to ACF color picker field (adjust 'your_color_picker_field' with the actual field name)
+add_filter('acf/load_field/name=global_color_picker', 'populate_acf_color_picker_from_theme_json');

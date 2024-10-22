@@ -42,3 +42,15 @@ function enqueue_acf_options_page_script() {
   }
 }
 add_action('acf/input/admin_enqueue_scripts', 'enqueue_acf_options_page_script');
+
+function enqueue_alpine_assets() {
+wp_enqueue_script(
+  'alpinejs', // Handle
+  'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js', // Source
+  array(), // Dependencies
+  null, // Version
+  true // In footer
+);
+
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_alpine_assets' );

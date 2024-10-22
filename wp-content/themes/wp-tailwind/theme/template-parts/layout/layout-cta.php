@@ -5,7 +5,7 @@
  */
 ?>
 
-<div class="<?php echo esc_attr($args['width']); ?>">
+<div class="<?php echo esc_attr($args['width']); ?> flex">
     <?php
     // Get the group field array from ACF
 
@@ -19,7 +19,7 @@
                 $button_title = $button['title'] ?? '';
 
                 if ($button_url && $button_title) {
-                    echo '<a class="flex flex-wrap content-center h-full" href="' . esc_url($button_url) . '" class="btn">' . esc_html($button_title) . '</a>';
+                    echo '<div class="h-full content-center"><a class="inline-flex flex-wrap content-center btn" href="' . esc_url($button_url) . '">'. esc_html($button_title) . '</a></div>';
                 }
             }
         }

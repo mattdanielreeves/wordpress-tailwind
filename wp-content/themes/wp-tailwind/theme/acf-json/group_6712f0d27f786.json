@@ -3,8 +3,35 @@
     "title": "Globals",
     "fields": [
         {
-            "key": "field_6712f0d3c2d63",
-            "label": "Menu",
+            "key": "field_671699bfb50a8",
+            "label": "Global Color Picker",
+            "name": "global_color_picker",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "enable_opacity": 0,
+            "return_format": "string",
+            "choices": {
+                "#ffffff": "Background",
+                "#404040": "Foreground",
+                "#b91c1c": "Primary",
+                "#15803d": "Secondary",
+                "#0369a1": "Tertiary",
+                "#f0f0f0": "Accent",
+                "#dddddd": "Highlight"
+            }
+        },
+        {
+            "key": "field_6716d09bdf3eb",
+            "label": "Global Menu",
             "name": "global_menu",
             "aria-label": "",
             "type": "relationship",
@@ -16,10 +43,7 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "post",
-                "page"
-            ],
+            "post_type": "",
             "post_status": [
                 "publish"
             ],
@@ -33,6 +57,47 @@
             "min": "",
             "max": "",
             "elements": ""
+        },
+        {
+            "key": "field_67172998f2671",
+            "label": "Buttons",
+            "name": "buttons",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_671729aef2672",
+                    "label": "Button",
+                    "name": "button",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_67172998f2671"
+                }
+            ]
         }
     ],
     "location": [
@@ -53,5 +118,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729298222
+    "modified": 1729571256
 }

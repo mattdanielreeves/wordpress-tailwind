@@ -13,6 +13,7 @@
 */
 body {
 	@apply bg-background text-foreground font-sans;
+	container-type: inline-size;
 }
 
 h2.wp-block-heading {
