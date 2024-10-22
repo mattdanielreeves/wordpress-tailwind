@@ -127,18 +127,6 @@ function mdr_custom_acf_json_filename($filename, $post, $load_path)
 
 add_filter('acf/json/save_file_name', 'mdr_custom_acf_json_filename', 10, 3);
 
-// Get the Site Logo from ACF options
-$mdr_logo = get_field('mdr_logo', 'options', false);
-if ( !empty($mdr_logo) ) {
-    update_option('custom_logo', $mdr_logo, true); // Update Site Logo if not empty
-}
-
-// Get the Site Favicon from ACF options
-$mdr_favicon = get_field('mdr_favicon', 'options', false);
-if ( !empty($mdr_favicon) ) {
-    update_option('site_icon', $mdr_favicon, true); // Update Site Favicon / Icon if not empty
-}
-
 
 /*
 *  Populate ACF field (gravity_form_id) with list of gravity forms containing ids

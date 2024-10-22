@@ -40,7 +40,8 @@ data-can-hide="<?php echo $is_sticky ? 'true' : 'false'; ?>">
 			if ($blocks = get_field('header', 'option')):
 				while (have_rows('header', 'option')): the_row();
 					$blockNumber++;
-					$width = get_sub_field('width');
+					$width_clone = get_sub_field('width');
+					$width = $width_clone['global_container_width'];
 	
 					$width_classes = [
 							'quarter' => 'col-span-1',

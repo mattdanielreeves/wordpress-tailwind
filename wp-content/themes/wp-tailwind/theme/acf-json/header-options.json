@@ -83,7 +83,7 @@
                 },
                 {
                     "key": "field_67174f4744cf6",
-                    "label": "Is Sticky",
+                    "label": "Sticky",
                     "name": "is_sticky",
                     "aria-label": "",
                     "type": "true_false",
@@ -97,26 +97,7 @@
                     },
                     "message": "",
                     "default_value": 0,
-                    "ui_on_text": "",
-                    "ui_off_text": "",
-                    "ui": 1
-                },
-                {
-                    "key": "field_67174f6d44cf7",
-                    "label": "Can Hide",
-                    "name": "can_hide",
-                    "aria-label": "",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
+                    "allow_in_bindings": 1,
                     "ui_on_text": "",
                     "ui_off_text": "",
                     "ui": 1
@@ -174,7 +155,7 @@
                             "label": "Width",
                             "name": "width",
                             "aria-label": "",
-                            "type": "select",
+                            "type": "clone",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -183,19 +164,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "quarter": "quarter",
-                                "half": "half",
-                                "three-quarters": "three-quarters",
-                                "full": "full"
-                            },
-                            "default_value": false,
-                            "return_format": "value",
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "ui": 0,
-                            "ajax": 0,
-                            "placeholder": ""
+                            "clone": [
+                                "field_6717e6460fdd9"
+                            ],
+                            "display": "group",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         }
                     ],
                     "min": "",
@@ -348,6 +323,7 @@
                                     "min": "",
                                     "max": "",
                                     "elements": "",
+                                    "bidirectional_target": [],
                                     "parent_repeater": "field_6713fd2f3f895"
                                 },
                                 {
@@ -506,7 +482,8 @@
                                                     "return_format": "object",
                                                     "min": "",
                                                     "max": "",
-                                                    "elements": ""
+                                                    "elements": "",
+                                                    "bidirectional_target": []
                                                 },
                                                 {
                                                     "key": "field_67172d9518451",
@@ -551,7 +528,7 @@
                             ]
                         },
                         {
-                            "key": "field_671157235a8af",
+                            "key": "field_67181693fe597",
                             "label": "Width",
                             "name": "width",
                             "aria-label": "",
@@ -565,9 +542,9 @@
                                 "id": ""
                             },
                             "clone": [
-                                "field_671156acfabe4"
+                                "field_6717e6460fdd9"
                             ],
-                            "display": "seamless",
+                            "display": "group",
                             "layout": "block",
                             "prefix_label": 0,
                             "prefix_name": 0
@@ -638,9 +615,9 @@
                                 "id": ""
                             },
                             "clone": [
-                                "field_671156acfabe4"
+                                "field_6717e6460fdd9"
                             ],
-                            "display": "seamless",
+                            "display": "group",
                             "layout": "block",
                             "prefix_label": 0,
                             "prefix_name": 0
@@ -673,5 +650,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729580924
+    "modified": 1729634255
 }

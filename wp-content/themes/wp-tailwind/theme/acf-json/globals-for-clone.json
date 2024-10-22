@@ -1,0 +1,169 @@
+{
+    "key": "group_671818353bd30",
+    "title": "Globals for Clone",
+    "fields": [
+        {
+            "key": "field_671699bfb50a8",
+            "label": "Global Color Picker",
+            "name": "global_color_picker",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "enable_opacity": 0,
+            "return_format": "string",
+            "choices": {
+                "#ffffff": "Background",
+                "#404040": "Foreground",
+                "#b91c1c": "Primary",
+                "#15803d": "Secondary",
+                "#0369a1": "Tertiary",
+                "#f0f0f0": "Accent",
+                "#dddddd": "Highlight"
+            }
+        },
+        {
+            "key": "field_6716d09bdf3eb",
+            "label": "Global Menu",
+            "name": "global_menu",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "elements": "",
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_6718183564807",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6717d6fe7ddab",
+            "label": "Global Max Widths",
+            "name": "global_max_widths",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "xs": "Extra Small (20rem \/ 320px)",
+                "sm": "Small (24rem \/ 384px)",
+                "md": "Medium (28rem \/ 448px)",
+                "lg": "Large (32rem \/ 512px)",
+                "xl: Extra Large (36rem \/ 576px)": "xl: Extra Large (36rem \/ 576px)",
+                "2xl": "2XL (42rem \/ 672px)",
+                "3xl": "3XL (48rem \/ 768px)",
+                "4xl": "4XL (56rem \/ 896px)",
+                "5xl": "5XL (64rem \/ 1024px)",
+                "6xl": "6XL (72rem \/ 1152px)",
+                "7xl": "7XL (80rem \/ 1280px)",
+                "full": "Full Width"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6717e6460fdd9",
+            "label": "Global Container Widths",
+            "name": "global_container_width",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "quarter": "quarter",
+                "half": "half",
+                "three-quarters": "three-quarters",
+                "full": "full"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1729632323
+}

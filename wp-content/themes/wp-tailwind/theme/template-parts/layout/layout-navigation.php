@@ -48,6 +48,31 @@ $navigation_type = get_sub_field('navigation_type');
           echo '</ul></nav>';
       endif;
     }
+    if($navigation_type == 'mega_menu') {
+        if ($blocks = get_field('mega_menu')):
+            while (have_rows('mega_menu')): the_row();
+              $blockNumber++;
+              $width_clone = get_sub_field('width');
+              $width = $width_clone['global_container_width'];
+          
+              $width_classes = [
+                  'quarter' => 'col-span-1',
+                  'half' => 'col-span-2',
+                  'three-quarters' => 'col-span-3',
+                  'full' => 'col-span-4',
+              ];
+              
+              $width_class = $width_classes[$width] ?? '';
+              $template_name = get_row_layout();
+          
+              get_template_part('template-parts/layout/mega-menu/layout', get_row_layout(), array(
+                  'count' => $blockNumber,
+                  'name' => $template_name,
+                  'width' => $width_class,
+              ));
+            endwhile;
+          endif;
+    }
 
 ?>
 </div>
