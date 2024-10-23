@@ -6,3 +6,17 @@
  *
  * https://tailwindcss.com/docs/plugins#adding-utilities
  */
+/* Mega Menu */
+
+.mega {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all .4s;
+  pointer-events: none;
+}
+
+.mega.is-open {
+  opacity: 1;
+  pointer-events: none;
+}

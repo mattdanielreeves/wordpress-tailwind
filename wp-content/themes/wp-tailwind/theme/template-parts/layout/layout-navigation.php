@@ -48,30 +48,41 @@ $navigation_type = get_sub_field('navigation_type');
           echo '</ul></nav>';
       endif;
     }
-    if($navigation_type == 'mega_menu') {
-        if ($blocks = get_field('mega_menu')):
-            while (have_rows('mega_menu')): the_row();
-              $blockNumber++;
-              $width_clone = get_sub_field('width');
-              $width = $width_clone['global_container_width'];
-          
-              $width_classes = [
-                  'quarter' => 'col-span-1',
-                  'half' => 'col-span-2',
-                  'three-quarters' => 'col-span-3',
-                  'full' => 'col-span-4',
-              ];
-              
-              $width_class = $width_classes[$width] ?? '';
-              $template_name = get_row_layout();
-          
-              get_template_part('template-parts/layout/mega-menu/layout', get_row_layout(), array(
-                  'count' => $blockNumber,
-                  'name' => $template_name,
-                  'width' => $width_class,
-              ));
-            endwhile;
-          endif;
+    if($navigation_type == 'mega') {
+        if( have_rows('standard_menu', 'option') ):
+            echo '<nav x-data="{ isOpen: false }" @mouseenter="isOpen = true" @mouseleave="isOpen = false" class="h-full grid" aria-label="Main Navigation"><ul class="flex h-full justify-center flex-wrap content-center" role="menubar">';
+            while ( have_rows('standard_menu', 'option') ) : the_row();
+            $parent_menu_item = get_sub_field('parent');
+              if (is_array($parent_menu_item)) {
+                  $url = esc_url($parent_menu_item['url']);
+                  $title = esc_html($parent_menu_item['title']);
+                  $current_class = (get_permalink() == $url) ? 'current-menu-item' : '';
+                  echo '<li class="group ' . $current_class . ' z-10" role="none"><a href="' . $url . '" role="menuitem" aria-haspopup="true" aria-expanded="false">' . $title . '</a>';
+                  
+                  if ($navigation_type == 'mega') {
+                    echo '<span class="caret inline-block ml-2 transform transition-transform duration-300 group-hover:rotate-180">
+                              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                              </svg>
+                            </span>';} 
+                        }
+        if( $mega_menu = get_sub_field('mega_menu') ): ?>
+ 
+            <?php while ( have_rows('mega_menu') ) : the_row();?>
+                <div class="hidden group-hover:flex hover:flex absolute left-0 right-0 h-[60vh] pt-10 px-20">
+            <?php
+        $sub_template_name = get_row_layout();
+        get_template_part('template-parts/layout/mega-menu/layout', get_row_layout(), array(
+            'name' => $sub_template_name,
+        ));?>
+        </div>
+        <?php endwhile; ?>
+        <?php endif;
+        echo '</li>';
+    endwhile; ?>
+    <div class="mega absolute top-36 left-0 right-0 w-full pt-5 bg-red-800" x-bind:class="isOpen && 'is-open'"
+    x-bind:style="isOpen && {height: `60vh`} "></div></ul></nav>
+    <?php endif;
     }
 
 ?>
