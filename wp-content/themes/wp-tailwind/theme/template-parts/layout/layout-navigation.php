@@ -50,14 +50,14 @@ $navigation_type = get_sub_field('navigation_type');
     }
     if($navigation_type == 'mega') {
         if( have_rows('standard_menu', 'option') ):
-            echo '<nav x-data="{ isOpen: false }" @mouseenter="isOpen = true" @mouseleave="isOpen = false" class="h-full grid" aria-label="Main Navigation"><ul class="flex h-full justify-center flex-wrap content-center" role="menubar">';
+            echo '<nav class="h-full grid content-center" aria-label="Main Navigation"><ul x-data="{ isOpen: false }" @mouseenter="isOpen = true" @mouseleave="isOpen = false"  class="flex justify-center flex-wrap content-center max-w-fit mx-auto" role="menubar">';
             while ( have_rows('standard_menu', 'option') ) : the_row();
             $parent_menu_item = get_sub_field('parent');
               if (is_array($parent_menu_item)) {
                   $url = esc_url($parent_menu_item['url']);
                   $title = esc_html($parent_menu_item['title']);
                   $current_class = (get_permalink() == $url) ? 'current-menu-item' : '';
-                  echo '<li class="group ' . $current_class . ' z-10" role="none"><a href="' . $url . '" role="menuitem" aria-haspopup="true" aria-expanded="false">' . $title . '</a>';
+                  echo '<li x-data="{ isOpen: false }" @mouseenter="isOpen = true" @mouseleave="isOpen = false" class="group ' . $current_class . ' z-10" role="none"><a href="' . $url . '" role="menuitem" aria-haspopup="true" aria-expanded="false">' . $title . '</a>';
                   
                   if ($navigation_type == 'mega') {
                     echo '<span class="caret inline-block ml-2 transform transition-transform duration-300 group-hover:rotate-180">
@@ -69,7 +69,8 @@ $navigation_type = get_sub_field('navigation_type');
         if( $mega_menu = get_sub_field('mega_menu') ): ?>
  
             <?php while ( have_rows('mega_menu') ) : the_row();?>
-                <div class="hidden group-hover:flex hover:flex absolute left-0 right-0 h-[60vh] pt-10 px-20">
+                <div x-bind:class="isOpen && 'is-open'"
+                x-bind:style="isOpen && {height: `60vh`} " class="mega flex hover:flex absolute left-0 right-0 h-[60vh] pt-10 px-20">
             <?php
         $sub_template_name = get_row_layout();
         get_template_part('template-parts/layout/mega-menu/layout', get_row_layout(), array(
