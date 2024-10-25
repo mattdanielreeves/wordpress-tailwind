@@ -80,27 +80,6 @@
                         "accent": "Accent",
                         "highlight": "Highlight"
                     }
-                },
-                {
-                    "key": "field_67174f4744cf6",
-                    "label": "Sticky",
-                    "name": "is_sticky",
-                    "aria-label": "",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "allow_in_bindings": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": "",
-                    "ui": 1
                 }
             ]
         },
@@ -436,6 +415,28 @@
                                                     "max_size": "",
                                                     "mime_types": "",
                                                     "preview_size": "medium"
+                                                },
+                                                {
+                                                    "key": "field_671b0230e1828",
+                                                    "label": "Width",
+                                                    "name": "width",
+                                                    "aria-label": "",
+                                                    "type": "clone",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "clone": [
+                                                        "field_6717e6460fdd9"
+                                                    ],
+                                                    "display": "group",
+                                                    "layout": "block",
+                                                    "prefix_label": 0,
+                                                    "prefix_name": 0
                                                 }
                                             ],
                                             "min": "",
@@ -515,6 +516,38 @@
                                     "min": "",
                                     "max": "",
                                     "button_label": "Add Row",
+                                    "parent_repeater": "field_6713fd2f3f895"
+                                },
+                                {
+                                    "key": "field_671adc10724e0",
+                                    "label": "Background Color",
+                                    "name": "background_color",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "bg-neutral-100": "Neutral",
+                                        "bg-red-500": "Red",
+                                        "bg-green-500": "Green",
+                                        "bg-blue-500": "Blue",
+                                        "bg-yellow-500": "Yellow",
+                                        "bg-purple-500": "Purple"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "allow_in_bindings": 1,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": "",
                                     "parent_repeater": "field_6713fd2f3f895"
                                 }
                             ]
@@ -642,5 +675,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729634846
+    "modified": 1729888897
 }

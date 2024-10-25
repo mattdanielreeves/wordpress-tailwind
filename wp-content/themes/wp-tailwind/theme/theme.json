@@ -43,8 +43,8 @@
 			]
 		},
 		"layout": {
-			"contentSize": "80vw",
-			"wideSize": "90vw"
+			"contentSize": "100%",
+			"wideSize": "100%"
 		}
 	}
 }

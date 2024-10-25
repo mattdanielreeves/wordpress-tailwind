@@ -37,3 +37,30 @@ function mytheme_setup() {
     add_post_type_support('page', 'thumbnail');
 }
 add_action('after_setup_theme', 'mytheme_setup');
+
+/* Tailwind Background Color Classes for ACF Select */
+
+function get_tailwind_bg_classes_for_acf()
+{
+    return [
+        'bg-neutral-100' => 'Neutral',
+        'bg-red-500' => 'Red',
+        'bg-green-500' => 'Green',
+        'bg-blue-500' => 'Blue',
+        'bg-yellow-500' => 'Yellow',
+        'bg-purple-500' => 'Purple'
+    ];
+}
+
+function mdr_acf_load_field_choices($field)
+{
+    // Get the Tailwind background color classes
+    $choices = get_tailwind_bg_classes_for_acf();
+
+    // Set the choices for the select field
+    $field['choices'] = $choices;
+
+    return $field;
+}
+
+add_filter('acf/load_field/name=background_color', 'mdr_acf_load_field_choices');
