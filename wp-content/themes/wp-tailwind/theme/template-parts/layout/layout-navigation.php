@@ -54,7 +54,7 @@ $navigation_type = get_sub_field('navigation_type');
     }
     if ($navigation_type == 'mega') {
         if (have_rows('standard_menu', 'option')):
-            echo '<nav class="h-full grid content-center" aria-label="Main Navigation"><ul class="flex group/ul justify-center gap-0 flex-wrap content-center max-w-fit mx-auto h-full" role="menubar">';
+            echo '<nav class="h-full grid content-end" aria-label="Main Navigation"><ul class="flex group/ul justify-center gap-0 content-end max-w-fit mx-auto h-full" role="menubar">';
 
             while (have_rows('standard_menu', 'option')):
                 the_row();
@@ -66,7 +66,7 @@ $navigation_type = get_sub_field('navigation_type');
                     $has_mega = !empty(get_sub_field('mega_menu')) ? 'hover:cursor-default' : '';
                     $current_class = (get_permalink() == $url) ? 'current-menu-item' : '';
                     $enable_submenu = get_sub_field('enable_submenu') ?? false;
-                    $menu_position = $enable_submenu ? 'relative' : '';
+                    $menu_position = $enable_submenu ? 'relative z-50 ' : '';
                     echo '<li x-data="{ isOpen: false, timeout: null }"
                     @mouseenter="isOpen = true; clearTimeout(timeout)"
                     @mouseleave="timeout = setTimeout(() => { isOpen = false }, 300)"
@@ -76,7 +76,7 @@ $navigation_type = get_sub_field('navigation_type');
                     @focusin="isOpen = true"
                     @focusout.window="isOpen = false"
                     aria-haspopup="' . ($enable_submenu || $has_mega ? 'true' : 'false') . '"
-                    class="main-menu-item group ' . $current_class . ' ' . $menu_position . ' z-10" role="none"><a class="' . $has_mega . '" tabindex="0" href="' . $url . '">' . $title . '</a>';
+                    class="main-menu-item group ' . $current_class . ' ' . $menu_position . ' z-10 hover:z-50" role="none"><a class="' . $has_mega . '" tabindex="0" href="' . $url . '">' . $title . '</a>';
 
                     // Check if `mega_menu` layouts exist
                     if (have_rows('mega_menu') && !$enable_submenu):
@@ -132,7 +132,7 @@ $navigation_type = get_sub_field('navigation_type');
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                               </svg>
                             </span>';
-                        echo '<ul class="submenu absolute left-0 hidden group-hover:block group-focus-within:block bg-white shadow-lg min-w-max">';
+                        echo '<ul class="submenu absolute left-0 hidden group-hover:block group-focus-within:block bg-white shadow-lg min-w-max z-20">';
                         foreach (get_sub_field('submenu') as $submenu_item) {
                             $submenu_url = get_permalink($submenu_item->ID);
                             $submenu_title = get_the_title($submenu_item->ID);

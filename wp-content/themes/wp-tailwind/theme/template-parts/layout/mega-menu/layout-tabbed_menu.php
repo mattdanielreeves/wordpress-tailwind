@@ -1,21 +1,27 @@
 <?php
-$tabs = get_sub_field('tabs'); // Assuming 'tabs' is a repeater field with each tab's data
+$tabs = get_sub_field('tabs');
 if ($tabs && is_array($tabs)):
   $first_tab_key = array_key_first($tabs);
   ?>
 
   <div x-data="{ activeTab: '<?php echo esc_attr($first_tab_key); ?>' }"
-    class="<?php echo esc_attr($args['width'] ?? 'default-width'); ?> grid grid-cols-4 gap-4">
+    class="<?php echo esc_attr($args['width']); ?> grid grid-cols-4 gap-4">
 
     <!-- Tab Buttons (Col-span-1) -->
-    <div class="col-span-1 border-r border-gray-200">
+    <div class="col-span-1 border-r border-gray-200" role="tablist" aria-label="Tabbed Navigation">
       <?php foreach ($tabs as $key => $tab): ?>
-        <?php
-        $tab_label = isset($tab['tab_label']) ? esc_html($tab['tab_label']) : 'Default Tab';
-        ?>
-        <button @click="activeTab = '<?php echo esc_attr($key); ?>'"
-          :class="{'bg-gray-100': activeTab === '<?php echo esc_attr($key); ?>'}"
-          class="w-full text-left px-4 py-2 hover:bg-gray-100 focus:outline-none transition">
+        <?php $tab_label = isset($tab['tab_label']) ? esc_html($tab['tab_label']) : 'Default Tab'; ?>
+
+        <button @mouseover="activeTab = '<?php echo esc_attr($key); ?>'"
+          @keydown.enter.prevent="activeTab = '<?php echo esc_attr($key); ?>'"
+          @keydown.space.prevent="activeTab = '<?php echo esc_attr($key); ?>'"
+          :aria-selected="activeTab === '<?php echo esc_attr($key); ?>'"
+          :tabindex="activeTab === '<?php echo esc_attr($key); ?>' ? 0 : 0" :class="{
+          'bg-gray-100 font-semibold text-blue-600': activeTab === '<?php echo esc_attr($key); ?>',
+          'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2': true
+          }" class="w-full text-left px-4 py-2 hover:bg-gray-100 transition" role="tab"
+          id="tab-<?php echo esc_attr($key); ?>" aria-controls="tabpanel-<?php echo esc_attr($key); ?>">
+
           <?php echo $tab_label; ?>
         </button>
       <?php endforeach; ?>
@@ -24,17 +30,17 @@ if ($tabs && is_array($tabs)):
     <!-- Tab Content (Col-span-3) -->
     <div class="col-span-3">
       <?php foreach ($tabs as $key => $tab): ?>
-        <?php
-        // Verify 'menu' and 'global_menu' exist to avoid undefined array key errors
-        $menu_items = isset($tab['tabbed_menu']['global_menu']) ? $tab['tabbed_menu']['global_menu'] : null;
-        ?>
-        <div x-show="activeTab === '<?php echo esc_attr($key); ?>'" x-cloak>
+        <?php $menu_items = $tab['tabbed_menu']['global_menu']; ?>
+
+        <div x-show="activeTab === '<?php echo esc_attr($key); ?>'" x-cloak role="tabpanel" tabindex="-1"
+          id="tabpanel-<?php echo esc_attr($key); ?>" aria-labelledby="tab-<?php echo esc_attr($key); ?>" class="p-4">
+
           <?php if ($menu_items): ?>
-            <ul>
+            <ul class="<?php echo esc_attr($args['width']); ?> flex flex-wrap w-full">
               <?php foreach ($menu_items as $menu_item): ?>
-                <li>
+                <li class="w-1/5">
                   <a href="<?php echo esc_url(get_permalink($menu_item->ID)); ?>"
-                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     <?php echo esc_html(get_the_title($menu_item->ID)); ?>
                   </a>
                 </li>
@@ -46,6 +52,6 @@ if ($tabs && is_array($tabs)):
         </div>
       <?php endforeach; ?>
     </div>
-
   </div>
+
 <?php endif; ?>
