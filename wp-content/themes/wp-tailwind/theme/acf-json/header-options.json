@@ -234,25 +234,18 @@
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": [
-                                        [
-                                            {
-                                                "field": "field_67101057fa7a9",
-                                                "operator": "!=",
-                                                "value": "mega"
-                                            }
-                                        ]
-                                    ],
+                                    "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "10",
+                                        "width": "",
                                         "class": "",
                                         "id": ""
                                     },
                                     "message": "",
                                     "default_value": 0,
-                                    "ui": 0,
-                                    "ui_on_text": "",
-                                    "ui_off_text": "",
+                                    "allow_in_bindings": 1,
+                                    "ui_on_text": "Standard Submenu",
+                                    "ui_off_text": "Mega Menu",
+                                    "ui": 1,
                                     "parent_repeater": "field_6713fd2f3f895"
                                 },
                                 {
@@ -308,9 +301,9 @@
                                     "conditional_logic": [
                                         [
                                             {
-                                                "field": "field_67101057fa7a9",
-                                                "operator": "==",
-                                                "value": "mega"
+                                                "field": "field_67140652e5ee1",
+                                                "operator": "!=",
+                                                "value": "1"
                                             }
                                         ]
                                     ],
@@ -451,7 +444,7 @@
                                                 {
                                                     "key": "field_6716d239d3177",
                                                     "label": "Links:",
-                                                    "name": "choose_links:",
+                                                    "name": "choose_links",
                                                     "aria-label": "",
                                                     "type": "relationship",
                                                     "instructions": "",
@@ -475,7 +468,9 @@
                                                     "return_format": "object",
                                                     "min": "",
                                                     "max": "",
+                                                    "allow_in_bindings": 1,
                                                     "elements": "",
+                                                    "bidirectional": 0,
                                                     "bidirectional_target": []
                                                 },
                                                 {
@@ -507,6 +502,129 @@
                                                     "ui": 0,
                                                     "ajax": 0,
                                                     "placeholder": ""
+                                                },
+                                                {
+                                                    "key": "field_671c2a0320f94",
+                                                    "label": "Width",
+                                                    "name": "width",
+                                                    "aria-label": "",
+                                                    "type": "clone",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "clone": [
+                                                        "field_6717e6460fdd9"
+                                                    ],
+                                                    "display": "group",
+                                                    "layout": "block",
+                                                    "prefix_label": 0,
+                                                    "prefix_name": 0
+                                                }
+                                            ],
+                                            "min": "",
+                                            "max": ""
+                                        },
+                                        "layout_671d9d71bed93": {
+                                            "key": "layout_671d9d71bed93",
+                                            "name": "tabbed_menu",
+                                            "label": "Tabbed Menu",
+                                            "display": "block",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_671d9d7fbed9a",
+                                                    "label": "Tabs",
+                                                    "name": "tabs",
+                                                    "aria-label": "",
+                                                    "type": "repeater",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "layout": "table",
+                                                    "min": 0,
+                                                    "max": 0,
+                                                    "collapsed": "",
+                                                    "button_label": "Add Row",
+                                                    "rows_per_page": 20,
+                                                    "sub_fields": [
+                                                        {
+                                                            "key": "field_671da44b75330",
+                                                            "label": "Tab label",
+                                                            "name": "tab_label",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "allow_in_bindings": 0,
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_671d9d7fbed9a"
+                                                        },
+                                                        {
+                                                            "key": "field_671d9d97bed9b",
+                                                            "label": "Menu",
+                                                            "name": "tabbed_menu",
+                                                            "aria-label": "",
+                                                            "type": "clone",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "clone": [
+                                                                "field_6716d09bdf3eb"
+                                                            ],
+                                                            "display": "group",
+                                                            "layout": "block",
+                                                            "prefix_label": 0,
+                                                            "prefix_name": 0,
+                                                            "parent_repeater": "field_671d9d7fbed9a"
+                                                        },
+                                                        {
+                                                            "key": "field_671da054fd57b",
+                                                            "label": "Width",
+                                                            "name": "width",
+                                                            "aria-label": "",
+                                                            "type": "clone",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "clone": [
+                                                                "field_6717e6460fdd9"
+                                                            ],
+                                                            "display": "group",
+                                                            "layout": "block",
+                                                            "prefix_label": 0,
+                                                            "prefix_name": 0,
+                                                            "parent_repeater": "field_671d9d7fbed9a"
+                                                        }
+                                                    ]
                                                 }
                                             ],
                                             "min": "",
@@ -675,5 +793,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729888897
+    "modified": 1729995866
 }
