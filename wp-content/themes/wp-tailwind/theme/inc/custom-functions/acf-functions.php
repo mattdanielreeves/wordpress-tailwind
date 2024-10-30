@@ -298,3 +298,30 @@ function populate_acf_color_picker_from_theme_json($field)
 
 // Hook the function to ACF color picker field (adjust 'your_color_picker_field' with the actual field name)
 add_filter('acf/load_field/name=global_color_picker', 'populate_acf_color_picker_from_theme_json');
+
+// Default Widths for ACF Layouts
+function get_width_class()
+{
+    // Retrieve the width field
+    $width_clone = get_sub_field('width');
+    $width = $width_clone['global_container_width'];
+
+    // Define the width classes
+    $width_classes = [
+        'one' => 'col-span-1',
+        'two' => 'col-span-2',
+        'three' => 'col-span-3',
+        'four' => 'col-span-4',
+        'five' => 'col-span-5',
+        'six' => 'col-span-6',
+        'seven' => 'col-span-7',
+        'eight' => 'col-span-8',
+        'nine' => 'col-span-9',
+        'ten' => 'col-span-10',
+        'eleven' => 'col-span-11',
+        'twelve' => 'col-span-12',
+    ];
+
+    // Return the corresponding class or an empty string if not found
+    return $width_classes[$width] ?? '';
+}

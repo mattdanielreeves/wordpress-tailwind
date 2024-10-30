@@ -12,8 +12,8 @@
  * editor.
 */
 body {
-	@apply bg-background text-foreground font-sans;
-	container-type: inline-size;
+	@apply bg-background text-foreground font-sans overflow-x-hidden;
+	overflow-x: hidden;
 }
 
 h2.wp-block-heading {

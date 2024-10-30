@@ -6,13 +6,18 @@
  *
  * https://tailwindcss.com/docs/plugins#adding-utilities
  */
+
+
 /* Mega Menu */
 
 .main-menu-item {
   height: 100%;
-  padding: 0 12px 40px;
-  margin-bottom: -30px;
+  padding: 0 12px;
 
+  >a {
+    padding: 12px 0 40px;
+    margin-bottom: -40px;
+  }
 }
 
 .main-menu-item:first-of-type {

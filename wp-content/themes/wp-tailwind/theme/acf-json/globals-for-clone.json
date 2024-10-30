@@ -60,27 +60,6 @@
             "bidirectional_target": []
         },
         {
-            "key": "field_6718183564807",
-            "label": "",
-            "name": "",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_6717d6fe7ddab",
             "label": "Global Max Widths",
             "name": "global_max_widths",
@@ -132,12 +111,20 @@
                 "id": ""
             },
             "choices": {
-                "quarter": "quarter",
-                "half": "half",
-                "three-quarters": "three-quarters",
-                "full": "full"
+                "one": "One-Twelfth (1 Col)",
+                "two": "One-Sixth (2 Cols)",
+                "three": "Quarter (3 Cols)",
+                "four": "One-Third (4 Cols)",
+                "five": "Five-Twelfths (5 Cols)",
+                "six": "Half (6 Cols)",
+                "seven": "Seven-Twelfths (7 Cols)",
+                "eight": "Two-Thirds (8 Cols)",
+                "nine": "Three Quarters (9 Cols)",
+                "ten": "Five-Sixth (10 Cols)",
+                "eleven": "Eleven-Twelfths (11 Cols)",
+                "twelve": "Full (12 Cols)"
             },
-            "default_value": false,
+            "default_value": "three",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -165,5 +152,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729823383
+    "modified": 1730072555
 }

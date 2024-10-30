@@ -19,6 +19,9 @@ module.exports = {
 			gap: {
 				'standard-gap': '24px',
 			},
+			margin: {
+				'-half-screen': '-50vw',
+			},
 		},
 	},
 	corePlugins: {
