@@ -32,64 +32,14 @@ $navigation_type = get_field('always_mobile', 'option');
 				</a>
 			</div>
 			<!-- Hamburger Icon -->
-			<button @click="open = !open" class="hamburger-button">
+			<button @click="open = !open" class="hamburger-button" x-data x-init="$el.classList.add('slide-fade-in')">
 				<div :class="{'open': open}" class="hamburger">
 					<span></span>
 					<span></span>
 					<span></span>
 				</div>
 			</button>
-			<style>
-				.hamburger-button {
-					background: none;
-					border: none;
-					cursor: pointer;
-					padding: 0;
-				}
 
-				.hamburger {
-					display: flex;
-					flex-direction: column;
-					justify-content: space-around;
-					width: 30px;
-					height: 24px;
-					transition: transform 0.3s ease;
-				}
-
-				.hamburger span {
-					display: block;
-					width: 100%;
-					height: 3px;
-					background-color: #000;
-					transition: all 0.3s ease;
-				}
-
-				.hamburger.open {
-					animation: spin 0.3s forwards;
-				}
-
-				.hamburger.open span:nth-child(1) {
-					transform: rotate(45deg) translate(5px, 5px);
-				}
-
-				.hamburger.open span:nth-child(2) {
-					opacity: 0;
-				}
-
-				.hamburger.open span:nth-child(3) {
-					transform: rotate(-45deg) translate(5px, -5px);
-				}
-
-				@keyframes spin {
-					from {
-						transform: rotate(0deg);
-					}
-
-					to {
-						transform: rotate(360deg);
-					}
-				}
-			</style>
 		</div>
 	<?php endif; ?>
 	<div <?php if ($navigation_type === true): ?>:class="{'translate-x-[100vw]': !open, 'translate-x-0': open}" <?php endif; ?>
@@ -109,6 +59,7 @@ $navigation_type = get_field('always_mobile', 'option');
 					'count' => $blockNumber,
 					'name' => $template_name,
 					'width' => $width_class,
+					'type' => $navigation_type,
 				));
 			endwhile;
 		endif;

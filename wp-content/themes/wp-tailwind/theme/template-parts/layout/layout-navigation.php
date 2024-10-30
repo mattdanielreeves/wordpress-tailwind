@@ -7,10 +7,15 @@
 
 ?>
 <div class="<?php echo esc_attr($args['width'] ?? ''); ?>">
+
     <?php
 
     if (have_rows('standard_menu', 'option')):
-        echo '<nav class="h-full grid content-end" aria-label="Main Navigation"><ul class="flex group/ul justify-center gap-0 content-end max-w-fit mx-auto h-full" role="menubar">';
+
+        $nav_classes = $args['type'] ? 'content-center' : 'content-end';
+        $ul_classes = $args['type'] ? 'flex-col' : '';
+
+        echo '<nav class="h-full grid ' . $nav_classes . '" aria-label="Main Navigation"><ul class="flex group/ul justify-center gap-0 ' . $ul_classes . ' max-w-fit mx-auto h-full" role="menubar">';
 
         while (have_rows('standard_menu', 'option')):
             the_row();
@@ -23,7 +28,10 @@
                 $current_class = (get_permalink() == $url) ? 'current-menu-item' : '';
                 $enable_submenu = get_sub_field('enable_submenu') ?? false;
                 $menu_position = $enable_submenu ? 'relative z-50 ' : '';
-                echo '<li x-data="{ isOpen: false, timeout: null }"
+                $main_class = !$args['type'] ? 'main-menu-item ' : 'p-4 text-5xl';
+                ?>
+
+                <?php echo '<li x-data="{ isOpen: false, timeout: null }"
                     @mouseenter="isOpen = true; clearTimeout(timeout)"
                     @mouseleave="timeout = setTimeout(() => { isOpen = false }, 300)"
                     @keydown.enter="isOpen = true; clearTimeout(timeout)"
@@ -31,11 +39,11 @@
                     @keydown.esc="isOpen = false; clearTimeout(timeout)"
                     @focusin="isOpen = true"
                     @focusout.window="isOpen = false"
-                    aria-haspopup="' . ($enable_submenu ? 'true' : 'false') . '"
-                    class="main-menu-item group/submenu ' . $current_class . ' ' . $menu_position . ' z-10 hover:z-50" role="none"><a class="' . $has_mega . '" tabindex="0" href="' . $url . '">' . $title . '</a>';
+                    aria-haspopup="' . ($enable_submenu || $has_mega ? 'true' : 'false') . '"
+                    class="' . $main_class . ' group ' . $current_class . ' ' . $menu_position . ' z-10 hover:z-50" role="none"><a class="' . $has_mega . '" tabindex="0" href="' . $url . '">' . $title . '</a>';
 
                 // Check if `mega_menu` layouts exist
-                if (have_rows('mega_menu') && !$enable_submenu):
+                if (!$args['type'] && have_rows('mega_menu') && !$enable_submenu):
                     echo '<span class="caret inline-block ml-2 transition-transform duration-300 group-hover:rotate-180">';
 
                     echo '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>';
@@ -74,19 +82,27 @@
                 endif;
 
                 // Display submenu if enabled
-                if ($enable_submenu) {
-                    echo '<span class="caret inline-block ml-2 transform transition-transform duration-300 group-hover:rotate-180">
-                              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                              </svg>
-                            </span>';
-                    echo '<ul class="submenu absolute left-0 hidden group-hover/submenu:block group-focus-within/submenu:block bg-white shadow-lg min-w-max z-20">';
-                    foreach (get_sub_field('submenu') as $submenu_item) {
-                        $submenu_url = get_permalink($submenu_item->ID);
-                        $submenu_title = get_the_title($submenu_item->ID);
-                        $submenu_current_class = (is_page($submenu_item->ID) || is_single($submenu_item->ID)) ? 'current-menu-item' : '';
-                        echo '<li class="' . $submenu_current_class . '" ><a tabindex="0" href="' . esc_url($submenu_url) . '" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">' . esc_html($submenu_title) . '</a></li>';
+                if (!$args['type'] && $enable_submenu) {
+                    $submenu = is_array(get_sub_field('submenu')) ? get_sub_field('submenu') : [];
+                    ?>
+                    <?php
+                    if (!empty($submenu)) {
+                        echo '<span class="caret inline-block ml-2 transform transition-transform duration-300 group-hover:rotate-180">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                        </span>';
+                        echo '<ul class="submenu absolute left-0 hidden group-hover:block group-focus-within:block bg-white shadow-lg min-w-max z-20">';
+
+                        // Check if submenu is an array before iterating
+                        foreach ($submenu as $submenu_item) {
+                            $submenu_url = get_permalink($submenu_item->ID);
+                            $submenu_title = get_the_title($submenu_item->ID);
+                            $submenu_current_class = (is_page($submenu_item->ID) || is_single($submenu_item->ID)) ? 'current-menu-item' : '';
+                            echo '<li class="' . $submenu_current_class . '" ><a tabindex="0" href="' . esc_url($submenu_url) . '" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">' . esc_html($submenu_title) . '</a></li>';
+                        }
                     }
+
                     echo '</ul>';
                 }
 

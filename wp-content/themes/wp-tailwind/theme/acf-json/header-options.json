@@ -285,8 +285,8 @@
                             "layout": "block",
                             "min": 1,
                             "max": 0,
-                            "collapsed": "",
-                            "button_label": "Add Row",
+                            "collapsed": "field_6713fd433f896",
+                            "button_label": "Add Menu Item",
                             "rows_per_page": 20,
                             "sub_fields": [
                                 {
@@ -728,7 +728,7 @@
                                     },
                                     "min": "",
                                     "max": "",
-                                    "button_label": "Add Row",
+                                    "button_label": "Add Mega Menu Item",
                                     "parent_repeater": "field_6713fd2f3f895"
                                 },
                                 {
@@ -793,5 +793,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730251987
+    "modified": 1730308484
 }
