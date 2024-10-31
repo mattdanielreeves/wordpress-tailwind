@@ -7,6 +7,26 @@
  * https://tailwindcss.com/docs/plugins#adding-utilities
  */
 
+/* Sticky Header */
+
+
+
+header {
+  .fixed-logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .hamburger-container.translate-y-0 {
+    transform: translateY(0);
+  }
+
+  .hamburger-container.-translate-y-full {
+    transform: translateY(-100%);
+  }
+
+}
 
 /* Mega Menu */
 
