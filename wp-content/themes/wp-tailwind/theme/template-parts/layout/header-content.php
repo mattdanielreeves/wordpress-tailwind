@@ -11,7 +11,12 @@ $navigation_type = get_field('always_mobile', 'option');
 ?>
 <header id="header"
 	class="flex flex-col justify-end <?php if ($navigation_type === true): ?>overflow-x-hidden<?php endif; ?>" <?php if ($navigation_type === true): ?>x-data="{ open: false }" <?php endif; ?>>
-	<?php if ($navigation_type === true): ?>
+	<?php if ($navigation_type === true):
+		$always_mobile_settings = get_field('always_mobile_settings', 'option');
+		$background_image = $always_mobile_settings['background_image'];
+		$background_url = $background_image['url'];
+		$background_style = $background_url ? "style=\"background-image: url('" . esc_url($background_url) . "'); background-size: cover;\"" : "";
+		?>
 		<div class="always-mobile flex justify-between z-50">
 			<div class="max-w-xs">
 				<a href="<?php echo esc_url(home_url('/')); ?>" class="">
@@ -25,14 +30,16 @@ $navigation_type = get_field('always_mobile', 'option');
 						$site_logo_url = $site_logo['url'];
 						$site_logo_alt = $site_logo['alt'];
 						?>
-						<img src="<?php echo esc_url($site_logo_url); ?>" alt="<?php echo esc_attr($site_logo_alt); ?>" />
+						<img :class="{'brightness-0 invert transition delay-300': open}" class="logo" class="logo"
+							src="<?php echo esc_url($site_logo_url); ?>" alt="<?php echo esc_attr($site_logo_alt); ?>" />
 						<?php
 					}
 					?>
 				</a>
 			</div>
 			<!-- Hamburger Icon -->
-			<button @click="open = !open" class="hamburger-button" x-data x-init="$el.classList.add('slide-fade-in')">
+			<button @click="open = !open; document.body.classList.toggle('overflow-hidden', open)" class="hamburger-button"
+				x-data x-init="$el.classList.add('slide-fade-in')">
 				<div :class="{'open': open}" class="hamburger">
 					<span></span>
 					<span></span>
@@ -42,8 +49,8 @@ $navigation_type = get_field('always_mobile', 'option');
 
 		</div>
 	<?php endif; ?>
-	<div <?php if ($navigation_type === true): ?>:class="{'translate-x-[100vw]': !open, 'translate-x-0': open}" <?php endif; ?>
-		class="inner-header grid grid-cols-12 grid-flow-row auto-rows-auto auto-cols-fr <?php if ($navigation_type != true): ?>max-w-screen-xl<?php endif; ?> mx-auto  <?php if ($navigation_type === true): ?>transform transition-transform duration-300 ease-in-out absolute left-0 right-0 top-0 bottom-0 bg-red-500 p-20<?php endif; ?>">
+	<div <?php if ($navigation_type === true): ?>:class="{'opacity-0 translate-x-[100vw]': !open, 'opacity-100 translate-x-0': open}" <?php endif; ?> <?php echo $background_style; ?>
+		class="inner-header bg-blend-lighten grid grid-cols-12 grid-flow-row auto-rows-auto auto-cols-fr <?php if ($navigation_type != true): ?>max-w-screen-xl<?php endif; ?> mx-auto  <?php if ($navigation_type === true): ?>transform transition-all duration-700 ease-in-out absolute left-0 right-0 top-0 bottom-0 bg-red-900 p-20<?php endif; ?>">
 		<?php
 		global $blockNumber;
 		$blockNumber = 0;

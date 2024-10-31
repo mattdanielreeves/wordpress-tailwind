@@ -59,59 +59,76 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 5px;
-  margin: 5px;
-  height: 35px;
-  width: 40px;
+  height: 55px;
+  width: 60px;
   background: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: border-radius 0.3s ease-in-out;
-  border-radius: 0;
-}
+  transition: all 0.3s ease-in-out;
+  border-radius: 0 0 0 25px;
 
-.hamburger-button:hover {
-  border-radius: 10px;
+  span {
+    &:nth-child(3) {
+      width: 60%;
+    }
+  }
+
+  &:hover {
+    border-radius: 0;
+    background: orange;
+
+    span {
+      width: 100%;
+    }
+
+
+  }
+
+  &:has(.open) {
+    border-radius: 0;
+  }
 }
 
 .hamburger {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 22px;
-  height: 22px;
-  transition: transform 0.3s ease;
-}
-
-.hamburger.open {
-  width: 30px;
-  height: 22px;
-}
-
-
-.hamburger span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: white;
+  align-items: flex-end;
+  width: 33px;
+  height: 32px;
   transition: all 0.3s ease;
-}
 
-.hamburger.open {
-  animation: spin 0.3s forwards;
-}
+  span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
 
-.hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
+  &.open {
+    width: 30px;
+    height: 22px;
+    animation: spin 0.3s forwards;
 
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
+    span {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
 
-.hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+      &:nth-child(2) {
+        width: 80%;
+        opacity: 0;
+      }
+
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+        width: 100%;
+      }
+    }
+  }
 }
 
 @keyframes spin {
