@@ -22,6 +22,10 @@ module.exports = {
 			margin: {
 				'-half-screen': '-50vw',
 			},
+			fontFamily: {
+				"noto": ['Noto', 'serif'],
+				"lato": ['Lato', 'sans serif'],
+			},
 		},
 	},
 	corePlugins: {

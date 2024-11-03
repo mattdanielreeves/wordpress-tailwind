@@ -16,6 +16,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    @apply max-w-xs;
   }
 
   .hamburger-container.translate-y-0 {

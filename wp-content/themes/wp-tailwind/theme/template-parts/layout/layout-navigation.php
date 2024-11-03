@@ -6,13 +6,9 @@
 // Helper functions to keep the template organized
 function get_nav_classes($type)
 {
-    return $type ? 'content-center' : 'content-end';
+    return $type ? 'content-start' : 'content-end';
 }
 
-function get_ul_classes($type)
-{
-    return $type ? 'flex-col' : '';
-}
 
 function render_menu_item($item, $args)
 {
@@ -20,7 +16,7 @@ function render_menu_item($item, $args)
     $url = esc_url($item['url'] ?? '#');
     $title = esc_html($item['title'] ?? 'Untitled');
     $is_current = (get_permalink() == $url) ? 'current-menu-item' : '';
-    $main_class = !$args['type'] ? 'main-menu-item ' : 'p-4 text-5xl text-white';
+    $main_class = !$args['type'] ? 'main-menu-item ' : 'main-menu-item text-white font-lato font-light';
     $has_mega = !empty(get_sub_field('mega_menu')) ? 'hover:cursor-default' : '';
     $enable_submenu = get_sub_field('enable_submenu') ?? false;
     $menu_position = $enable_submenu ? 'relative z-50 ' : '';
@@ -40,7 +36,7 @@ function render_menu_item($item, $args)
         <a class="' . $has_mega . '" tabindex="0" href="' . $url . '">' . $title . '</a>';
 
     // Render mega menu or submenu based on conditions
-    if (have_rows('mega_menu') && !$args['type'] && !$enable_submenu) {
+    if (have_rows('mega_menu') && !$enable_submenu) {
         render_mega_menu($background_color);
     }
 
@@ -114,11 +110,9 @@ function render_submenu()
     <?php if (have_rows('standard_menu', 'option')): ?>
         <?php
         $nav_classes = get_nav_classes($args['type']);
-        $ul_classes = get_ul_classes($args['type']);
         ?>
         <nav class="h-full grid <?php echo $nav_classes; ?>" aria-label="Main Navigation">
-            <ul class="flex group/ul justify-center gap-0 <?php echo $ul_classes; ?> max-w-fit mx-auto h-full"
-                role="menubar">
+            <ul class="flex group/ul justify-start gap-0  max-w-fit mx-auto h-full" role="menubar">
                 <?php
                 // Loop through standard menu items and render each
                 while (have_rows('standard_menu', 'option')) {
