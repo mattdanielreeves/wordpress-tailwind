@@ -22,7 +22,10 @@ if (!function_exists('render_menu_item')) {
     $has_mega = !empty(get_sub_field('mega_menu')) ? 'hover:cursor-default' : '';
     $enable_submenu = get_sub_field('enable_submenu') ?? false;
     $menu_position = $enable_submenu ? 'relative z-50 ' : '';
-    $background_color = esc_attr(get_sub_field('background_color') ?? 'bg-gray-100'); // Fetch background color
+    $background_color_data = get_sub_field('background_color');
+    $background_color = isset($background_color_data['global_color_picker'])
+      ? esc_attr($background_color_data['global_color_picker'])
+      : 'bg-gray-100';// Fetch background color
 
     // Render main menu item
     echo '<li x-data="{ isOpen: false, timeout: null }"
@@ -58,15 +61,15 @@ if (!function_exists('render_mega_menu')) {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </span>';
-    echo '<div x-show="isOpen" x-transition:enter="transition ease-in-out duration-300"
+    echo '<style>.background-color{background-color:' . $background_color . '}</style><div x-show="isOpen" x-transition:enter="transition ease-in-out duration-300"
             x-transition:enter-start="opacity-0 transform scale-y-0 -translate-y-1/2"
             x-transition:enter-end="opacity-100 transform scale-y-100 translate-y-0"
             x-transition:leave="transition ease-in-out duration-300"
             x-transition:leave-start="opacity-100 transform scale-y-100 translate-y-0"
             x-transition:leave-end="opacity-0 transform scale-y-0 -translate-y-1/2"
-            class="h-full max-h-[60vh] absolute left-0 right-0 top-auto mt-4 w-full ' . $background_color . ' py-10 z-10">';
+            class="h-full max-h-[60vh] absolute left-0 right-0 top-auto mt-4 w-full background-color py-10 z-10">';
 
-    echo '<div class="relative grid grid-cols-12 grid-rows-3 max-w-screen-xl h-full mx-auto p-6 ' . $background_color . '">';
+    echo '<div class="relative grid grid-cols-12 grid-rows-3 max-w-screen-xl h-full mx-auto p-6 background-color">';
 
     while (have_rows('mega_menu')) {
       the_row();

@@ -70,7 +70,7 @@ function render_mega_menu($background_color)
     while (have_rows('mega_menu')) {
         the_row();
         $sub_template_name = get_row_layout();
-        get_template_part('template-parts/layout/mega-menu/layout', $sub_template_name, array(
+        get_template_part('template-parts/layout/builder/mega-menu/layout', $sub_template_name, array(
             'width' => get_width_class(),
             'heading' => get_sub_field('heading'),
             'description' => get_sub_field('description'),
@@ -115,7 +115,7 @@ function render_submenu()
             <ul class="flex group/ul justify-start gap-0  max-w-fit mx-auto h-full" role="menubar">
                 <?php
                 // Loop through standard menu items and render each
-                while (have_rows('standard_menu', 'option')) {
+                while (have_rows('menu_wrapper', 'option')) {
                     the_row();
                     $parent_menu_item = get_sub_field('parent');
                     if (is_array($parent_menu_item)) {

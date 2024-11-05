@@ -1,4 +1,5 @@
 <?php
+
 $tabs = get_sub_field('tabs');
 if ($tabs && is_array($tabs)):
   $first_tab_key = array_key_first($tabs);
