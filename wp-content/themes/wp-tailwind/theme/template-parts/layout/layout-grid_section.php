@@ -3,26 +3,33 @@
  * Template part for displaying the main builder component
  *
  */
+
+$navigation_type = $args['type'];
 ?>
-<div class="grid grid-cols-12 grid-flow-row auto-rows-auto auto-cols-fr mx-auto">
+<div
+  class="grid grid-cols-12 grid-flow-row auto-rows-auto auto-cols-fr mx-auto <?php echo esc_attr($args['width'] ?? ''); ?>">
   <?php
   global $blockNumber;
   $blockNumber = 0;
 
-  if ($blocks = get_field('page_builder', 'option')['builder']):
-    while (have_rows('builder', 'option')):
+  if (have_rows('components')):
+    while (have_rows('components')):
       the_row();
-      $blockNumber++;
-      $width_class = get_width_class();
-      $template_name = get_row_layout();
 
-      get_template_part('template-parts/layout/builder/layout', get_row_layout(), array(
+      $blockNumber++;
+      $template_name = get_row_layout();
+      $width_class = get_width_class();
+
+
+      get_template_part('template-parts/layout/builder/layout', $template_name, array(
         'count' => $blockNumber,
         'name' => $template_name,
         'width' => $width_class,
         'type' => $navigation_type,
       ));
+
     endwhile;
+
   endif;
   ?>
 

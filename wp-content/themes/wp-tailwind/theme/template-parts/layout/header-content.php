@@ -108,21 +108,23 @@ function render_inner_header_classes($navigation_type)
 		global $blockNumber;
 		$blockNumber = 0;
 
-		if ($blocks = get_field('header', 'option')):
-			while (have_rows('header', 'option')):
-				the_row();
-				$blockNumber++;
-				$width_class = get_width_class();
-				$template_name = get_row_layout();
+		if ($blocks = get_field('builder', 'option')): ?>
+			<div class="grid grid-cols-12 grid-flow-row auto-rows-auto auto-cols-fr mx-auto w-full">
+				<?php while (have_rows('builder', 'option')):
+					the_row();
+					$blockNumber++;
+					$width_class = get_width_class();
+					$template_name = get_row_layout();
 
-				get_template_part('template-parts/layout/layout', get_row_layout(), array(
-					'count' => $blockNumber,
-					'name' => $template_name,
-					'width' => $width_class,
-					'type' => $navigation_type,
-				));
-			endwhile;
-		endif;
+					get_template_part('template-parts/layout/layout', get_row_layout(), array(
+						'count' => $blockNumber,
+						'name' => $template_name,
+						'width' => $width_class,
+						'type' => $navigation_type,
+					));
+				endwhile; ?>
+			</div>
+		<?php endif;
 		?>
 
 		<?php if ($navigation_type): ?>
