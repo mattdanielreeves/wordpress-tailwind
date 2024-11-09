@@ -24,12 +24,23 @@ function get_background_style($settings)
 			break;
 		case 'image':
 			// Set background image
-			$background_url = $background_image['url'] ?? '';
-			$background_style = "background-image: url('" . esc_url($background_url) . "'); background-size: cover;";
+			if (is_array($background_image) && isset($background_image['id'])) {
+				$background_url = wp_get_attachment_url($background_image['id']);
+				if ($background_url) {
+					$background_style = "background-image: url('" . esc_url($background_url) . "'); background-size: cover;";
+					if (isset($background_image['top']) && isset($background_image['left'])) {
+						$background_style .= " background-position: " . esc_attr($background_image['left']) . "% " . esc_attr($background_image['top']) . "%;";
+					}
+				}
+			} else {
+				$background_url = $background_image['url'] ?? '';
+				$background_style = "background-image: url('" . esc_url($background_url) . "'); background-size: cover;";
+			}
 			break;
+		// Add other cases as needed
 	}
 
-	return array('style' => $background_style);
+	return $background_style;
 }
 
 function get_animation_class()
@@ -73,7 +84,7 @@ function render_hamburger_button()
 
 function render_inner_header_classes($navigation_type)
 {
-	return $navigation_type ? 'transform transition-all duration-700 ease-in-out fixed left-0 right-0 top-0 bottom-0 bg-red-900 p-20 before:absolute before:top-0 before:h-full before:w-full before:bottom:0 before:left-0 before:right-0 before:bg-black before:opacity-70' : 'max-w-screen-xl';
+	return $navigation_type ? 'transform transition-all duration-700 ease-in-out fixed left-0 right-0 top-0 bottom-0 before:absolute before:top-0 before:h-full before:w-full before:bottom:0 before:left-0 before:right-0 before:bg-black before:opacity-70' : 'max-w-screen-xl';
 }
 
 ?>
@@ -82,9 +93,7 @@ function render_inner_header_classes($navigation_type)
 
 	<?php if ($navigation_type): ?>
 		<?php
-
-		$background_data = get_background_style($always_mobile_settings);
-		$background_style = $background_data['style'];
+		$background_style = get_background_style($always_mobile_settings);
 		?>
 
 		<div class="always-mobile flex justify-between">
@@ -97,8 +106,7 @@ function render_inner_header_classes($navigation_type)
 			<?php render_hamburger_button(); ?>
 		</div>
 	<?php endif; ?>
-	<?php if ($navigation_type):
-		?>
+	<?php if ($navigation_type): ?>
 		<div
 			:class="{'opacity-0 <?php echo esc_attr(get_animation_class()); ?>': !open, 'opacity-100 translate-x-0 translate-y-0': open}"
 			style="<?php echo esc_attr($background_style); ?>"
@@ -109,7 +117,7 @@ function render_inner_header_classes($navigation_type)
 		$blockNumber = 0;
 
 		if ($blocks = get_field('builder', 'option')): ?>
-			<div class="grid grid-cols-12 grid-flow-row auto-rows-auto auto-cols-fr mx-auto w-full">
+			<div class="grid grid-cols-12 grid-flow-row auto-rows-auto auto-cols-fr mx-auto w-full col-span-12">
 				<?php while (have_rows('builder', 'option')):
 					the_row();
 					$blockNumber++;
@@ -124,8 +132,7 @@ function render_inner_header_classes($navigation_type)
 					));
 				endwhile; ?>
 			</div>
-		<?php endif;
-		?>
+		<?php endif; ?>
 
 		<?php if ($navigation_type): ?>
 		</div>

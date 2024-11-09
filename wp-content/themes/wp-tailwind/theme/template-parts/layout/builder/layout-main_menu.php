@@ -78,6 +78,7 @@ if (!function_exists('render_mega_menu')) {
         'width' => get_width_class(),
         'heading' => get_sub_field('heading'),
         'description' => get_sub_field('description'),
+        'class' => get_sub_field('tab_class'),
       ));
     }
     echo '</div></div>';

@@ -177,3 +177,8 @@ header {
     transform: translateY(0);
   }
 }
+
+/* Text Component */
+.text-component {
+  @apply max-w-2xl p-6 text-5xl mx-auto text-red-500;
+}

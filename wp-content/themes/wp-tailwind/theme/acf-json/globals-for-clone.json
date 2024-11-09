@@ -17,8 +17,9 @@
                 "id": ""
             },
             "default_value": "",
-            "enable_opacity": 0,
+            "enable_opacity": 1,
             "return_format": "string",
+            "allow_in_bindings": 1,
             "choices": {
                 "#ffffff": "Background",
                 "#404040": "Foreground",
@@ -152,5 +153,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730661617
+    "modified": 1730850183
 }
