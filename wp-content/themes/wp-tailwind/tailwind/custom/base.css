@@ -20,7 +20,11 @@ h2.wp-block-heading {
 	color: currentColor;
 }
 
-.flex,
+/* .flex,
 .grid {
 	@apply gap-6;
+} */
+
+.bring-to-top {
+	@apply z-50;
 }

@@ -3,6 +3,8 @@
  * Template part for displaying the image component
  *
  */
+
+$class = $args['class'] ?? '';
 function get_acf_image($field_name)
 {
   $image = get_sub_field($field_name);
@@ -57,13 +59,14 @@ $aspect_ratio = $image ? ($image['width'] / $image['height']) : 1;
 
 <?php if ($image): ?>
   <?php if ($link): ?>
-    <a class="<?php echo $width; ?>" href="<?php echo esc_url($link['url']); ?>"
+    <a class="<?php echo $width; ?> <?php echo $class; ?>" href="<?php echo esc_url($link['url']); ?>"
       target="<?php echo esc_attr($link['target']); ?>">
     <?php endif; ?>
 
     <div class="<?php echo $width; ?>" style="aspect-ratio: <?php echo esc_attr($aspect_ratio); ?>;">
       <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"
-        style="object-fit: cover; object-position: <?php echo esc_attr($image['left']) . '% ' . esc_attr($image['top']); ?>%; width: 100%; height: 100%;">
+        style="object-fit: cover; object-position: <?php echo esc_attr($image['left']) . '% ' . esc_attr($image['top']); ?>%; width: 100%; height: 100%;"
+        class="<?php echo $class; ?>">
     </div>
 
     <?php if ($link): ?>

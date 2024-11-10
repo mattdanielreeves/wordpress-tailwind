@@ -66,3 +66,12 @@
 		@apply text-white text-2xl;
 	}
 }
+
+/* Mega Link Boxes */
+.mega-link-boxes {
+
+
+	div {
+		@apply h-dvh max-h-[25vh];
+	}
+}

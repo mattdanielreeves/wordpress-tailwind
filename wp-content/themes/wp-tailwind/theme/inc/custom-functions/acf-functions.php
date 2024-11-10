@@ -308,17 +308,17 @@ function get_width_class()
 
     // Define the width classes
     $width_classes = [
-        'one' => 'col-span-1',
-        'two' => 'col-span-2',
-        'three' => 'col-span-3',
-        'four' => 'col-span-4',
-        'five' => 'col-span-5',
-        'six' => 'col-span-6',
-        'seven' => 'col-span-7',
-        'eight' => 'col-span-8',
-        'nine' => 'col-span-9',
-        'ten' => 'col-span-10',
-        'eleven' => 'col-span-11',
+        'one' => 'col-span-12 md:col-span-6 lg:col-span-1',
+        'two' => 'col-span-12 md:col-span-6 lg:col-span-2',
+        'three' => 'col-span-12 md:col-span-6 lg:col-span-3',
+        'four' => 'col-span-12 md:col-span-6 lg:col-span-4',
+        'five' => 'col-span-12 md:col-span-6 lg:col-span-5',
+        'six' => 'col-span-12 md:col-span-6 lg:col-span-6',
+        'seven' => 'col-span-12 md:col-span-6 lg:col-span-7',
+        'eight' => 'col-span-12 md:col-span-6 lg:col-span-8',
+        'nine' => 'col-span-12 md:col-span-6 lg:col-span-9',
+        'ten' => 'col-span-12 md:col-span-6 lg:col-span-10',
+        'eleven' => 'col-span-12 md:col-span-6 lg:col-span-11',
         'twelve' => 'col-span-12',
     ];
 
