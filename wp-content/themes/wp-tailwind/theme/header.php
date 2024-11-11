@@ -9,7 +9,8 @@
  *
  * @package wp-tailwind
  */
-
+global $is_in_header;
+$is_in_header = true;
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 
@@ -27,6 +28,8 @@
 	<div id="page">
 		<a href="#content" class="sr-only"><?php esc_html_e('Skip to content', 'wp-tailwind'); ?></a>
 
-		<?php get_template_part('template-parts/layout/header', 'content'); ?>
+		<?php
+		get_template_part('template-parts/layout/header-content', null, array('post_id' => 'header'));
+		?>
 
 		<div id="content">

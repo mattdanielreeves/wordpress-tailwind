@@ -5,8 +5,8 @@
  * @package wp-tailwind
  */
 
-$navigation_type = get_field('always_mobile', 'option');
-$always_mobile_settings = get_field('always_mobile_settings', 'option');
+$navigation_type = get_field('always_mobile', 'header');
+$always_mobile_settings = get_field('always_mobile_settings', 'header');
 
 // Helper functions
 function get_background_style($settings)
@@ -46,7 +46,7 @@ function get_background_style($settings)
 function get_animation_class()
 {
 	// Retrieve the selected value from the always_mobile_settings group
-	$position = get_field('always_mobile_settings', 'option')['animation']; // Replace 'select_field_name' with the actual field name
+	$position = get_field('always_mobile_settings', 'header')['animation']; // Replace 'select_field_name' with the actual field name
 
 	// Define an array that maps each position to a Tailwind translate class
 	$translate_classes = [
@@ -115,10 +115,10 @@ function render_inner_header_classes($navigation_type)
 		<?php
 		global $blockNumber;
 		$blockNumber = 0;
-
-		if ($blocks = get_field('builder', 'option')): ?>
+		$post_id = isset($args['post_id']) ? $args['post_id'] : '';
+		if ($blocks = get_field('builder', $post_id)): ?>
 			<div class="grid grid-cols-12 grid-flow-row auto-rows-auto auto-cols-fr mx-auto w-full col-span-12">
-				<?php while (have_rows('builder', 'option')):
+				<?php while (have_rows('builder', $post_id)):
 					the_row();
 					$blockNumber++;
 					$width_class = get_width_class();

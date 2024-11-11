@@ -5,12 +5,6 @@
  */
 
 // Helper functions
-if (!function_exists('get_acf_field')) {
-  function get_acf_field($field_name)
-  {
-    return get_sub_field($field_name);
-  }
-}
 
 if (!function_exists('display_text_or_text_area')) {
   function display_text_or_text_area($lines, $text, $text_area)
@@ -44,21 +38,21 @@ if (!function_exists('get_button_markup')) {
 }
 
 // Fetch ACF fields
-$lines = get_acf_field('lines');
-$text = get_acf_field('text');
-$text_area = get_acf_field('text_area');
-$html_tag = get_acf_field('html_tag');
-$button = get_acf_field('button');
-$style = get_acf_field('style');
-$class = get_acf_field('class'); // Fetch class separately
+$lines = get_sub_field('lines');
+$text = get_sub_field('text');
+$text_area = get_sub_field('text_area');
+$html_tag = get_sub_field('html_tag');
+$button = get_sub_field('button');
+$style = get_sub_field('style');
+$class = get_sub_field('class'); // Fetch class separately
 $background_color_data = get_sub_field('background_color');
 $background = isset($background_color_data['global_color_picker'])
   ? esc_attr($background_color_data['global_color_picker'])
   : 'bg-gray-100';// Fetch background color
 
 $text_color_data = get_sub_field('text_color');
-$text_color = isset($text_color_data['text_color_global_color_picker'])
-  ? esc_attr($text_color_data['text_color_global_color_picker'])
+$text_color = isset($text_color_data['global_color_picker'])
+  ? esc_attr($text_color_data['global_color_picker'])
   : 'text-gray-100';// Fetch text color
 
 // Determine content
@@ -67,9 +61,11 @@ $tag = get_html_tag($html_tag);
 $button_markup = get_button_markup($button, $style, $text, $class, $text_color, $lines, $text_area);
 ?>
 
-<<?php echo $tag; ?> style="background-color: <?php echo $background; ?>;" class="
-  <?php echo esc_attr($class); ?> <?php echo esc_attr($args['width'] ?? ''); ?> <?php echo $text_color; ?> items-center
+<<?php echo $tag; ?> style="background-color: <?php echo $background; ?>; color: <?php echo $text_color; ?>;"
+  class="
+  <?php echo esc_attr($class); ?> <?php echo esc_attr($args['width'] ?? ''); ?> items-center
   relative flex p-8">
+
   <?php if (!$button_markup) {
     echo '<span>' . $content . '</span>';
   } ?>

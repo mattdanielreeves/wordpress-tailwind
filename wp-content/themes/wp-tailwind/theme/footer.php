@@ -13,7 +13,11 @@
 
 </div><!-- #content -->
 
-<?php get_template_part('template-parts/layout/footer', 'content'); ?>
+<?php get_template_part(
+  'template-parts/layout/footer',
+  'content',
+  array('post_id' => 'footer')
+); ?>
 
 </div><!-- #page -->
 

@@ -7,9 +7,13 @@
  * https://tailwindcss.com/docs/plugins#adding-utilities
  */
 
+/* Main Container */
+
+.main-container {
+  @apply grid grid-cols-12 grid-flow-row auto-rows-auto auto-cols-fr
+}
+
 /* Sticky Header */
-
-
 
 header {
   .fixed-logo {

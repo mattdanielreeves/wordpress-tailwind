@@ -7,47 +7,31 @@
  *
  * @package wp-tailwind
  */
-
+$footer_height = get_field('footer_height', 'footer');
+$background_color = get_field('background_color', 'footer')['global_color_picker'];
 ?>
 
-<footer id="colophon">
+<footer style="background-color:<?php echo $background_color; ?>" id="colophon">
 
-	<?php if (is_active_sidebar('sidebar-1')) : ?>
-		<aside role="complementary" aria-label="<?php esc_attr_e('Footer', 'wp-tailwind '); ?>">
-			<?php dynamic_sidebar('sidebar-1'); ?>
-		</aside>
+	<?php
+	global $blockNumber;
+	$blockNumber = 0;
+	$post_id = isset($args['post_id']) ? $args['post_id'] : '';
+	if ($blocks = get_field('builder', $post_id)): ?>
+		<div <?php if ($footer_height) { ?>style="min-height:<?php echo $footer_height; ?>;" <?php } ?>class="grid grid-cols-12 grid-flow-row auto-rows-auto auto-cols-fr mx-auto w-full col-span-12">
+			<?php while (have_rows('builder', $post_id)):
+				the_row();
+				$blockNumber++;
+				$width_class = get_width_class();
+				$template_name = get_row_layout();
+
+				get_template_part('template-parts/layout/layout', get_row_layout(), array(
+					'count' => $blockNumber,
+					'name' => $template_name,
+					'width' => $width_class,
+				));
+			endwhile; ?>
+		</div>
 	<?php endif; ?>
-
-	<?php if (has_nav_menu('menu-2')) : ?>
-		<nav aria-label="<?php esc_attr_e('Footer Menu', 'wp-tailwind'); ?>">
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-2',
-					'menu_class'     => 'footer-menu',
-					'depth'          => 1,
-				)
-			);
-			?>
-		</nav>
-	<?php endif; ?>
-
-	<div>
-		<?php
-		$wp_tailwind_blog_info = get_bloginfo('name');
-		if (! empty($wp_tailwind_blog_info)) :
-		?>
-			<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>,
-		<?php
-		endif;
-
-		/* translators: 1: WordPress link, 2: WordPress. */
-		printf(
-			'<a href="%1$s">proudly powered by %2$s</a>.',
-			esc_url(__('https://wordpress.org/', 'wp-tailwind')),
-			'WordPress'
-		);
-		?>
-	</div>
 
 </footer><!-- #colophon -->

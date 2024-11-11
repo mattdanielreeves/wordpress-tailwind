@@ -7,38 +7,40 @@
 
 // Options Pages
 
-if (function_exists('acf_add_options_page')) {
+// if (function_exists('acf_add_options_page')) {
 
-    // Parent options page: Site Settings
-    $parent = acf_add_options_page(array(
-        'page_title' => 'Site Settings',
-        'menu_title' => 'Site Settings',
-        'menu_slug' => 'site-settings',
-        'capability' => 'edit_posts',
-        'redirect' => false
-    ));
+//     // Parent options page: Site Settings
+//     $parent = acf_add_options_page(array(
+//         'page_title' => 'Site Settings',
+//         'menu_title' => 'Site Settings',
+//         'menu_slug' => 'site-settings',
+//         'capability' => 'edit_posts',
+//         'redirect' => false
+//     ));
 
-    // Child page: Header
-    acf_add_options_sub_page(array(
-        'page_title' => 'Header Settings',
-        'menu_title' => 'Header',
-        'parent_slug' => $parent['menu_slug'],
-    ));
+//     // Child page: Header
+//     acf_add_options_sub_page(array(
+//         'page_title' => 'Header Settings',
+//         'menu_title' => 'Header',
+//         'parent_slug' => $parent['menu_slug'],
+//         'menu_slug' => 'header-settings',
+//     ));
 
-    // Child page: Footer
-    acf_add_options_sub_page(array(
-        'page_title' => 'Footer Settings',
-        'menu_title' => 'Footer',
-        'parent_slug' => $parent['menu_slug'],
-    ));
+//     // Child page: Footer
+//     acf_add_options_sub_page(array(
+//         'page_title' => 'Footer Settings',
+//         'menu_title' => 'Footer',
+//         'parent_slug' => $parent['menu_slug'],
+//         'menu_slug' => 'footer-settings',
+//     ));
 
-    // Child page: Contact
-    acf_add_options_sub_page(array(
-        'page_title' => 'Contact Settings',
-        'menu_title' => 'Contact',
-        'parent_slug' => $parent['menu_slug'],
-    ));
-}
+//     // Child page: Contact
+//     acf_add_options_sub_page(array(
+//         'page_title' => 'Contact Settings',
+//         'menu_title' => 'Contact',
+//         'parent_slug' => $parent['menu_slug'],
+//     ));
+// }
 
 
 // Register ACF Blocks
@@ -325,3 +327,30 @@ function get_width_class()
     // Return the corresponding class or an empty string if not found
     return $width_classes[$width] ?? '';
 }
+
+function populate_alignment_select_field($field)
+{
+    // Check if the field description matches "Alignment"
+    if ($field['instructions'] === 'Alignment') {
+        // Define the alignment options
+        $alignment_options = [
+            '' => 'Default',
+            'content-start h-full' => 'Top',
+            'content-center h-full' => 'Center',
+            'content-between h-full' => 'Between',
+            'content-around h-full' => 'Around',
+            'content-evenly h-full' => 'Evenly',
+            'content-end h-full' => 'Bottom',
+            'content-baseline h-full' => 'Baseline',
+            'content-stretch h-full' => 'Stretch'
+        ];
+
+        // Populate the select field with the alignment options
+        $field['choices'] = $alignment_options;
+    }
+
+    return $field;
+}
+
+// Hook into ACF to populate the select field
+add_filter('acf/load_field/type=select', 'populate_alignment_select_field');

@@ -4,6 +4,8 @@
  */
 
 // Helper functions to keep the template organized
+
+
 if (!function_exists('get_nav_classes')) {
   function get_nav_classes($type)
   {
@@ -12,13 +14,15 @@ if (!function_exists('get_nav_classes')) {
 }
 
 if (!function_exists('render_menu_item')) {
+
   function render_menu_item($item, $args)
   {
+    $navigation_type = $args['type'] ?? '';
     // Get parent item details and background color
     $url = esc_url($item['url'] ?? '#');
     $title = esc_html($item['title'] ?? 'Untitled');
     $is_current = (get_permalink() == $url) ? 'current-menu-item' : '';
-    $main_class = !$args['type'] ? 'main-menu-item ' : 'main-menu-item text-white font-lato font-light';
+    $main_class = !$navigation_type ? 'main-menu-item ' : 'main-menu-item text-white font-lato font-light';
     $has_mega = !empty(get_sub_field('mega_menu')) ? 'hover:cursor-default' : '';
     $enable_submenu = get_sub_field('enable_submenu') ?? false;
     $menu_position = $enable_submenu ? 'relative z-50 ' : '';
