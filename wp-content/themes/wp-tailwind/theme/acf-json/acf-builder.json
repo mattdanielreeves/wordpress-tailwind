@@ -1028,6 +1028,40 @@
                                             "placeholder": "",
                                             "prepend": "",
                                             "append": ""
+                                        },
+                                        {
+                                            "key": "field_6736ba21587d1",
+                                            "label": "Content Position",
+                                            "name": "content_position",
+                                            "aria-label": "",
+                                            "type": "select",
+                                            "instructions": "Alignment",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "": "Default",
+                                                "content-start h-full": "Top",
+                                                "content-center h-full": "Center",
+                                                "content-between h-full": "Between",
+                                                "content-around h-full": "Around",
+                                                "content-evenly h-full": "Evenly",
+                                                "content-end h-full": "Bottom",
+                                                "content-baseline h-full": "Baseline",
+                                                "content-stretch h-full": "Stretch"
+                                            },
+                                            "default_value": false,
+                                            "return_format": "value",
+                                            "multiple": 0,
+                                            "allow_null": 0,
+                                            "allow_in_bindings": 0,
+                                            "ui": 0,
+                                            "ajax": 0,
+                                            "placeholder": ""
                                         }
                                     ],
                                     "min": "",
@@ -1180,11 +1214,15 @@
                                 "id": ""
                             },
                             "choices": {
-                                "items-start": "Top (items-start)",
-                                "items-center": "Center (items-center)",
-                                "items-bottom": "Bottom (items-end)",
-                                "items-baseline": "Baseline (items-baseline)",
-                                "items-stretch": "Stretch (items-stretch)"
+                                "": "Default",
+                                "content-start h-full": "Top",
+                                "content-center h-full": "Center",
+                                "content-between h-full": "Between",
+                                "content-around h-full": "Around",
+                                "content-evenly h-full": "Evenly",
+                                "content-end h-full": "Bottom",
+                                "content-baseline h-full": "Baseline",
+                                "content-stretch h-full": "Stretch"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -1292,6 +1330,13 @@
                 "operator": "==",
                 "value": "footer-settings"
             }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "mobile-menu"
+            }
         ]
     ],
     "menu_order": 0,
@@ -1303,5 +1348,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731354496
+    "modified": 1731639964
 }

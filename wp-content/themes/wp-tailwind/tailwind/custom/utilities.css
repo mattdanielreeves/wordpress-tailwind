@@ -10,7 +10,11 @@
 /* Main Container */
 
 .main-container {
-  @apply grid grid-cols-12 grid-flow-row auto-rows-auto auto-cols-fr
+  @apply grid grid-cols-12 grid-flow-row-dense auto-rows-auto auto-cols-fr;
+}
+
+.full-height-column {
+  @apply row-span-full;
 }
 
 /* Sticky Header */

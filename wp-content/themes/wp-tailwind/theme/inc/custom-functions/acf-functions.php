@@ -192,13 +192,13 @@ function mdr_custom_admin_styles()
         }
         
         /* Child section border */
-        .acf-flexible-content .layout .acf-flexible-content .layout > .acf-input{
-            border-left: 4px solid green;
+        .acf-flexible-content .layout > .acf-fields .acf-fields, .acf-field-group > .acf-fields .acf-fields{
+            border-left: 4px solid green !important;
         }
         
         /* Grandchild section border */
-        .acf-flexible-content .layout .acf-flexible-content > .layout .acf-flexible-content .layout > .acf-fields {
-            border-left: 4px solid orange;
+        .acf-flexible-content .layout > .acf-fields .acf-fields .acf-fields, .acf-field-group > .acf-fields .acf-fields .acf-fields{
+            border-left: 1px solid lightgray !important;
         }
 
 

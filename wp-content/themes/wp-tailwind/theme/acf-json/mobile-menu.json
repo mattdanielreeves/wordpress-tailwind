@@ -1,15 +1,15 @@
 {
-    "key": "ui_options_page_673020b37913a",
-    "title": "Contact Info",
+    "key": "ui_options_page_673653888c6e2",
+    "title": "Mobile Menu",
     "active": true,
     "menu_order": 0,
-    "page_title": "Contact Info",
-    "menu_slug": "contact-info",
+    "page_title": "Mobile Menu",
+    "menu_slug": "mobile-menu",
     "parent_slug": "site-settings",
     "advanced_configuration": 1,
     "icon_url": "",
-    "menu_title": "",
-    "position": 1,
+    "menu_title": "Mobile Menu",
+    "position": 4,
     "redirect": false,
     "description": "",
     "menu_icon": [],
@@ -17,8 +17,8 @@
     "updated_message": "Options Updated",
     "capability": "edit_posts",
     "data_storage": "post_id",
-    "post_id": "contact",
+    "post_id": "mobile",
     "autoload": 0,
     "_parent": 279,
-    "modified": 1731613839
+    "modified": 1731621114
 }

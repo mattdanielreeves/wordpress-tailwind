@@ -3,6 +3,28 @@
     "title": "Header Options",
     "fields": [
         {
+            "key": "field_67369b3b655c3",
+            "label": "Minimum Height",
+            "name": "minimum_height",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_6732530b8f846"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_672071fbbe2d7",
             "label": "Always Mobile",
             "name": "always_mobile",
@@ -25,7 +47,7 @@
         },
         {
             "key": "field_672318b05a637",
-            "label": "Always Mobile Settings",
+            "label": "Mobile Settings",
             "name": "always_mobile_settings",
             "aria-label": "",
             "type": "group",
@@ -308,5 +330,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731207062
+    "modified": 1731631972
 }

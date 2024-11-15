@@ -5,6 +5,7 @@
 
 // Helper functions to keep the template organized
 
+$vertical = get_sub_field('content_position');
 
 if (!function_exists('get_nav_classes')) {
   function get_nav_classes($type)
@@ -71,7 +72,7 @@ if (!function_exists('render_mega_menu')) {
             x-transition:leave="transition ease-in-out duration-300"
             x-transition:leave-start="opacity-100 transform scale-y-100 translate-y-0"
             x-transition:leave-end="opacity-0 transform scale-y-0 -translate-y-1/2"
-            class="h-full max-h-[60vh] absolute left-0 right-0 top-auto mt-4 w-full background-color py-10 z-10">';
+            class="h-full max-h-[60vh] absolute left-0 right-0 top-auto w-full background-color py-10 z-10">';
 
     echo '<div class="relative grid grid-cols-12 grid-rows-3 max-w-screen-xl h-full mx-auto p-6 background-color">';
 

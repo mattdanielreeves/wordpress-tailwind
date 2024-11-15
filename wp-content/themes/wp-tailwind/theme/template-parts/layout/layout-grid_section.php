@@ -15,42 +15,41 @@ $custom_class = get_sub_field('class');
 ?>
 
 <div style="background-color:<?php echo $background; ?>"
-  class="main-container mx-auto w-full items-center <?php echo esc_attr($args['width'] ?? ''); ?>">
-  <div
-    class="main-container mx-auto w-full col-span-12 <?php echo $vertical; ?> <?php echo esc_attr($custom_class ?? ''); ?>">
-    <?php
-    global $blockNumber;
-    $blockNumber = 0;
+  class="main-container mx-auto w-full <?php echo esc_attr($args['width'] ?? ''); ?> <?php echo $vertical; ?> <?php echo esc_attr($custom_class ?? ''); ?>">
 
-    if (have_rows('components')):
-      while (have_rows('components')):
-        the_row();
+  <?php
+  global $blockNumber;
+  $blockNumber = 0;
 
-        $blockNumber++;
-        $template_name = get_row_layout();
-        $width_class = get_width_class();
+  if (have_rows('components')):
 
-        if ($type) {
-          get_template_part('template-parts/layout/builder/layout', $template_name, array(
-            'count' => $blockNumber,
-            'name' => $template_name,
-            'width' => $width_class,
-            'type' => $type,
-            'class' => $custom_class,
-          ));
-        } else {
-          get_template_part('template-parts/layout/builder/layout', $template_name, array(
-            'count' => $blockNumber,
-            'name' => $template_name,
-            'width' => $width_class,
-            'class' => $custom_class,
-          ));
-        }
+    while (have_rows('components')):
+      the_row();
 
-      endwhile;
+      $blockNumber++;
+      $template_name = get_row_layout();
+      $width_class = get_width_class();
 
-    endif;
-    ?>
+      if ($type) {
+        get_template_part('template-parts/layout/builder/layout', $template_name, array(
+          'count' => $blockNumber,
+          'name' => $template_name,
+          'width' => $width_class,
+          'type' => $type,
+          'class' => $custom_class,
+        ));
+      } else {
+        get_template_part('template-parts/layout/builder/layout', $template_name, array(
+          'count' => $blockNumber,
+          'name' => $template_name,
+          'width' => $width_class,
+          'class' => $custom_class,
+        ));
+      }
 
-  </div>
+    endwhile;
+  endif;
+  ?>
+
+
 </div>

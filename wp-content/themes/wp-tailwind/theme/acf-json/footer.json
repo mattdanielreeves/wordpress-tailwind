@@ -8,8 +8,8 @@
     "parent_slug": "site-settings",
     "advanced_configuration": 1,
     "icon_url": "",
-    "menu_title": "",
-    "position": 2,
+    "menu_title": "Footer Menu",
+    "position": 3,
     "redirect": false,
     "description": "",
     "menu_icon": [],
@@ -20,5 +20,5 @@
     "post_id": "footer",
     "autoload": 0,
     "_parent": 279,
-    "modified": 1731209526
+    "modified": 1731613977
 }
