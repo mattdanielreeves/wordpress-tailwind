@@ -56,8 +56,12 @@
 }
 
 /* Buttons */
-.btn {
+.solid-button {
 	@apply inline-block px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-600;
+}
+
+.outline-button{
+	@apply inline-block px-4 py-2 text-sm font-semibold text-white border border-solid border-slate-800 rounded hover:bg-blue-600;
 }
 
 /* Mega Menu Tabs */

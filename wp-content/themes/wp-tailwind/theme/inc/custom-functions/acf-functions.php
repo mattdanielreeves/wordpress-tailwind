@@ -354,3 +354,4 @@ function populate_alignment_select_field($field)
 
 // Hook into ACF to populate the select field
 add_filter('acf/load_field/type=select', 'populate_alignment_select_field');
+

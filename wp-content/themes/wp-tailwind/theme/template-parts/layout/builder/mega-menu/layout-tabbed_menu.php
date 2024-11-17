@@ -1,6 +1,7 @@
 <?php
 
 $tabs = get_sub_field('tabs');
+$description = get_sub_field('description');
 
 if ($tabs && is_array($tabs)):
   $first_tab_key = array_key_first($tabs);
@@ -30,6 +31,7 @@ if ($tabs && is_array($tabs)):
           <?php echo $tab_label; ?>
         </button>
       <?php endforeach; ?>
+      <div><?php echo $description; ?></div>
     </div>
 
     <!-- Tab Content (Col-span-3) -->

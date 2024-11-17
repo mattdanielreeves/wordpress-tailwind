@@ -6,6 +6,7 @@
 
 $type = $args['type'] ?? null;
 $vertical = get_sub_field('content_position');
+$sticky = get_sub_field('sticky');
 
 $background_color_data = get_sub_field('background_color');
 $background = isset($background_color_data['global_color_picker'])
@@ -15,7 +16,15 @@ $custom_class = get_sub_field('class');
 ?>
 
 <div style="background-color:<?php echo $background; ?>"
-  class="main-container mx-auto w-full <?php echo esc_attr($args['width'] ?? ''); ?> <?php echo $vertical; ?> <?php echo esc_attr($custom_class ?? ''); ?>">
+  class="main-container mx-auto w-full <?php echo esc_attr($args['width'] ?? ''); ?> <?php echo $vertical; ?> <?php echo esc_attr($custom_class ?? ''); ?>"
+  <?php if ($sticky): ?> x-data="{ isSticky: false }" x-init="() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    this.isSticky = !entry.isIntersecting;
+                });
+            });
+            observer.observe($el);
+        }" :class="{ 'sticky': isSticky }" <?php endif; ?>>
 
   <?php
   global $blockNumber;
