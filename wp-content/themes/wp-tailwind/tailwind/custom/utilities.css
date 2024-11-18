@@ -190,3 +190,7 @@ header {
 .text-component {
   @apply max-w-2xl p-6 text-5xl mx-auto text-red-500;
 }
+
+.hide-on-mobile{
+  @apply !hidden md:!grid;
+}

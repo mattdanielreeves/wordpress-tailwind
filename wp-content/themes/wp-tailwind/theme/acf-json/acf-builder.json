@@ -694,7 +694,9 @@
                                                                         "with_image": "With Image",
                                                                         "with_excerpt": "With Excerpt",
                                                                         "with_image_excerpt": "Image and Excerpt",
-                                                                        "with_image_excerpt_icon": "Icon, Image, and Excerpt"
+                                                                        "with_image_excerpt_icon": "Icon, Image, and Excerpt",
+                                                                        "icon_only": "Icon Only",
+                                                                        "image_only": "Image Only"
                                                                     },
                                                                     "default_value": false,
                                                                     "return_format": "value",
@@ -852,7 +854,7 @@
                                                                         {
                                                                             "key": "field_6726d3c340647",
                                                                             "label": "Menu",
-                                                                            "name": "tabbed_menu",
+                                                                            "name": "tab_menu",
                                                                             "aria-label": "",
                                                                             "type": "clone",
                                                                             "instructions": "",
@@ -939,6 +941,45 @@
                                                                     "rows": "",
                                                                     "placeholder": "",
                                                                     "new_lines": ""
+                                                                },
+                                                                {
+                                                                    "key": "field_673a28bf9990a",
+                                                                    "label": "Button",
+                                                                    "name": "button",
+                                                                    "aria-label": "",
+                                                                    "type": "link",
+                                                                    "instructions": "",
+                                                                    "required": 0,
+                                                                    "conditional_logic": 0,
+                                                                    "wrapper": {
+                                                                        "width": "",
+                                                                        "class": "",
+                                                                        "id": ""
+                                                                    },
+                                                                    "return_format": "array",
+                                                                    "allow_in_bindings": 0
+                                                                },
+                                                                {
+                                                                    "key": "field_673a28ec9990b",
+                                                                    "label": "Button Style",
+                                                                    "name": "button_style",
+                                                                    "aria-label": "",
+                                                                    "type": "clone",
+                                                                    "instructions": "",
+                                                                    "required": 0,
+                                                                    "conditional_logic": 0,
+                                                                    "wrapper": {
+                                                                        "width": "",
+                                                                        "class": "",
+                                                                        "id": ""
+                                                                    },
+                                                                    "clone": [
+                                                                        "field_6726bc616e422"
+                                                                    ],
+                                                                    "display": "group",
+                                                                    "layout": "block",
+                                                                    "prefix_label": 0,
+                                                                    "prefix_name": 1
                                                                 },
                                                                 {
                                                                     "key": "field_6726d3c340649",
@@ -1454,5 +1495,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731813581
+    "modified": 1731887890
 }

@@ -7,8 +7,6 @@
 
 $vertical = get_sub_field('content_position');
 
-
-
 // Main navigation wrapper
 if (have_rows('menu_wrapper')): ?>
   <nav class="main-navigation <?php echo esc_attr($args['width']); ?> <?php echo $vertical; ?>">
