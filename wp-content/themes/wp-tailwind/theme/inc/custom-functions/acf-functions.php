@@ -188,17 +188,29 @@ function mdr_custom_admin_styles()
         }
          /* Parent section border */
         .acf-flexible-content .layout > .acf-fields, .acf-field-group > .acf-fields {
-            border-left: 4px solid blue;
+            border-left: 4px solid lightblue;
+            
+            
         }
+
+        .acf-flexible-content .layout > .acf-fields .acf-field{
+        padding:8px !important;
+        }
+
         
         /* Child section border */
         .acf-flexible-content .layout > .acf-fields .acf-fields, .acf-field-group > .acf-fields .acf-fields{
-            border-left: 4px solid green !important;
+            border-left: 4px solid violet !important;
+            padding:4px !important;
         }
         
         /* Grandchild section border */
         .acf-flexible-content .layout > .acf-fields .acf-fields .acf-fields, .acf-field-group > .acf-fields .acf-fields .acf-fields{
             border-left: 1px solid lightgray !important;
+        }
+
+        [data-layout="info_section"],[data-layout="tabbed_menu"],[data-layout="menu"]{
+            border-left: 4px solid lightgreen !important;
         }
 
 

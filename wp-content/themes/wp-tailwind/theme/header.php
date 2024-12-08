@@ -12,13 +12,22 @@
 global $is_in_header;
 $is_in_header = true;
 ?><!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> hidden>
 
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
+	<script type="module">
+		import { setup, silent } from "https://cdn.skypack.dev/twind/shim";
+
+		// Custom configuration
+		setup({
+			mode: silent,
+		});
+	</script>
+
 </head>
 
 <body <?php body_class(); ?>>

@@ -69,7 +69,7 @@ if (!function_exists('render_mega_menu')) {
             x-transition:leave-end="opacity-0 transform scale-x-0 -translate-x-1/2"
             class="mega h-full max-h-[60vh] absolute left-0 right-0 top-auto w-full mt-2 py-10 z-10" style="background-color: ' . htmlspecialchars($background_color, ENT_QUOTES, 'UTF-8') . ';">';
 
-    echo '<div class="relative grid grid-cols-12 grid-rows-3 max-w-screen-xl h-full mx-auto p-6 ">';
+    echo '<div class="relative grid grid-cols-12 grid-flow-row auto-rows-auto auto-cols-fr mx-auto max-w-screen-xl h-full mx-auto p-6 ">';
 
     while (have_rows('mega_menu')) {
       the_row();
@@ -78,7 +78,7 @@ if (!function_exists('render_mega_menu')) {
         'width' => get_width_class(),
         'heading' => get_sub_field('heading'),
         'description' => get_sub_field('description'),
-        'class' => get_sub_field('tab_class'),
+        'class' => get_sub_field('class'),
       ));
     }
     echo '</div></div>';

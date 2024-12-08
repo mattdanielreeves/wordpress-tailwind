@@ -4,16 +4,22 @@ $tabs = get_sub_field('tabs');
 $description = get_sub_field('description');
 $button = get_sub_field('button');
 $button_style = get_sub_field('button_style')['style'];
+$font_color_group = get_sub_field('font_colors');
+$font_color = $font_color_group['font_color']['global_color_picker'];
+$font_hover = $font_color_group['font_hover']['global_color_picker'];
+$class = $args['class'] ?? '';
 
 if ($tabs && is_array($tabs)):
   $first_tab_key = array_key_first($tabs);
 
   ?>
   <div x-data="{ activeTab: '<?php echo esc_attr($first_tab_key); ?>' }"
-    class="<?php echo esc_attr($args['width']); ?> grid grid-cols-4 gap-4 ">
+    class="<?php echo $class; ?> <?php echo esc_attr($args['width']); ?> grid grid-cols-4 gap-4 ">
+
 
     <!-- Tab Buttons (Col-span-1) -->
-    <div class="col-span-1 border-r border-gray-200" role="tablist" aria-label="Tabbed Navigation">
+
+    <div class="col-span-1" role="tablist" aria-label="Tabbed Navigation">
       <?php foreach ($tabs as $key => $tab): ?>
         <?php
         $tab_label = isset($tab['tab_label']) ? esc_html($tab['tab_label']) : 'Default Tab';
@@ -33,7 +39,7 @@ if ($tabs && is_array($tabs)):
           <?php echo $tab_label; ?>
         </button>
       <?php endforeach; ?>
-      <div class="mt-4 text-xl p-2"><?php echo $description;
+      <div class="mt-4 text-xl p-2 flex flex-col gap-8"><?php echo $description;
       if ($button): ?>
           <div><?php $button_url = $button['url'];
           $button_title = $button['title'];
@@ -91,22 +97,22 @@ if ($tabs && is_array($tabs)):
 
         <div x-show="activeTab === '<?php echo esc_attr($key); ?>'" x-cloak role="tabpanel" tabindex="-1"
           id="tabpanel-<?php echo esc_attr($key); ?>" aria-labelledby="tab-<?php echo esc_attr($key); ?>"
-          class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl row-span-3 p-6 relative grid h-full w-full <?php echo $tab_class; ?>">
+          class="col-span-12 md:col-span-6 lg:col-span-3 row-span-all relative flex h-full w-full gap-8 <?php echo $tab_class; ?>">
           <?php
           if ($image): ?>
 
-            <div class="mb-4 relative overflow-hidden w-full col-span-3 flex flex-wrap max-h-[30vh]" style="">
-              <img src="<?php echo esc_url($image['url']); ?>"
-                style="object-fit: cover; object-position: <?php echo esc_attr($image['left']) . '% ' . esc_attr($image['top']); ?>%; width:100%; height:100%;" />
+            <div class="mb-4 relative overflow-hidden w-full col-span-12 flex flex-wrap"
+              style="background-image:url(<?php echo esc_url($image['url']); ?>); background-size:cover; background-position: <?php echo esc_attr($image['left']) . '% ' . esc_attr($image['top']); ?>%; width:100%; max-width:300px; height:100%;">
+
             </div>
 
           <?php endif; ?>
           <?php if ($menu_items): ?>
-            <ul class="<?php echo esc_attr($args['width']); ?> flex flex-wrap w-full">
+            <ul class="<?php echo esc_attr($args['width']); ?> flex flex-wrap w-full justify-start content-start gap-8 ">
               <?php foreach ($menu_items as $menu_item): ?>
-                <li class="w-1/5">
+                <li>
                   <a href="<?php echo esc_url(get_permalink($menu_item->ID)); ?>"
-                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    class="block px-4 py-2 text-[<?php echo $font_color; ?>] hover:text-[<?php echo $font_hover; ?>] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     <?php echo esc_html(get_the_title($menu_item->ID)); ?>
                   </a>
                 </li>

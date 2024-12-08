@@ -631,6 +631,68 @@
                                                                     "placeholder": "",
                                                                     "prepend": "",
                                                                     "append": ""
+                                                                },
+                                                                {
+                                                                    "key": "field_673d1d615350e",
+                                                                    "label": "Font Colors",
+                                                                    "name": "font_colors",
+                                                                    "aria-label": "",
+                                                                    "type": "group",
+                                                                    "instructions": "",
+                                                                    "required": 0,
+                                                                    "conditional_logic": 0,
+                                                                    "wrapper": {
+                                                                        "width": "",
+                                                                        "class": "",
+                                                                        "id": ""
+                                                                    },
+                                                                    "layout": "block",
+                                                                    "sub_fields": [
+                                                                        {
+                                                                            "key": "field_673d1ce55350d",
+                                                                            "label": "Text Color",
+                                                                            "name": "text_color",
+                                                                            "aria-label": "",
+                                                                            "type": "clone",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "clone": [
+                                                                                "field_671699bfb50a8"
+                                                                            ],
+                                                                            "display": "group",
+                                                                            "layout": "block",
+                                                                            "prefix_label": 0,
+                                                                            "prefix_name": 1
+                                                                        },
+                                                                        {
+                                                                            "key": "field_673d1d835350f",
+                                                                            "label": "Text Hover",
+                                                                            "name": "text_hover",
+                                                                            "aria-label": "",
+                                                                            "type": "clone",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "clone": [
+                                                                                "field_671699bfb50a8"
+                                                                            ],
+                                                                            "display": "group",
+                                                                            "layout": "block",
+                                                                            "prefix_label": 0,
+                                                                            "prefix_name": 1
+                                                                        }
+                                                                    ]
                                                                 }
                                                             ],
                                                             "min": "",
@@ -749,6 +811,68 @@
                                                                     "placeholder": "",
                                                                     "prepend": "",
                                                                     "append": ""
+                                                                },
+                                                                {
+                                                                    "key": "field_673d1f022b75a",
+                                                                    "label": "Font Colors",
+                                                                    "name": "font_colors",
+                                                                    "aria-label": "",
+                                                                    "type": "group",
+                                                                    "instructions": "",
+                                                                    "required": 0,
+                                                                    "conditional_logic": 0,
+                                                                    "wrapper": {
+                                                                        "width": "",
+                                                                        "class": "",
+                                                                        "id": ""
+                                                                    },
+                                                                    "layout": "block",
+                                                                    "sub_fields": [
+                                                                        {
+                                                                            "key": "field_673d1f102b75b",
+                                                                            "label": "Font Color",
+                                                                            "name": "font_color",
+                                                                            "aria-label": "",
+                                                                            "type": "clone",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "clone": [
+                                                                                "field_671699bfb50a8"
+                                                                            ],
+                                                                            "display": "group",
+                                                                            "layout": "block",
+                                                                            "prefix_label": 0,
+                                                                            "prefix_name": 1
+                                                                        },
+                                                                        {
+                                                                            "key": "field_673d1f2f2b75c",
+                                                                            "label": "Font Hover",
+                                                                            "name": "font_hover",
+                                                                            "aria-label": "",
+                                                                            "type": "clone",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "clone": [
+                                                                                "field_671699bfb50a8"
+                                                                            ],
+                                                                            "display": "group",
+                                                                            "layout": "block",
+                                                                            "prefix_label": 0,
+                                                                            "prefix_name": 1
+                                                                        }
+                                                                    ]
                                                                 }
                                                             ],
                                                             "min": "",
@@ -817,7 +941,7 @@
                                                                                 "class": "",
                                                                                 "id": ""
                                                                             },
-                                                                            "preview_size": "large",
+                                                                            "preview_size": "medium",
                                                                             "library": "all",
                                                                             "min_width": "",
                                                                             "min_height": "",
@@ -1009,7 +1133,7 @@
                                                                     "name": "class",
                                                                     "aria-label": "",
                                                                     "type": "text",
-                                                                    "instructions": "",
+                                                                    "instructions": "Tabs class",
                                                                     "required": 0,
                                                                     "conditional_logic": 0,
                                                                     "wrapper": {
@@ -1023,6 +1147,68 @@
                                                                     "placeholder": "",
                                                                     "prepend": "",
                                                                     "append": ""
+                                                                },
+                                                                {
+                                                                    "key": "field_673d1f652b75d",
+                                                                    "label": "Font Colors",
+                                                                    "name": "font_colors",
+                                                                    "aria-label": "",
+                                                                    "type": "group",
+                                                                    "instructions": "",
+                                                                    "required": 0,
+                                                                    "conditional_logic": 0,
+                                                                    "wrapper": {
+                                                                        "width": "",
+                                                                        "class": "",
+                                                                        "id": ""
+                                                                    },
+                                                                    "layout": "block",
+                                                                    "sub_fields": [
+                                                                        {
+                                                                            "key": "field_673d1f712b75e",
+                                                                            "label": "Font Color",
+                                                                            "name": "font_color",
+                                                                            "aria-label": "",
+                                                                            "type": "clone",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "clone": [
+                                                                                "field_671699bfb50a8"
+                                                                            ],
+                                                                            "display": "group",
+                                                                            "layout": "block",
+                                                                            "prefix_label": 0,
+                                                                            "prefix_name": 1
+                                                                        },
+                                                                        {
+                                                                            "key": "field_673d1f932b75f",
+                                                                            "label": "Font Hover",
+                                                                            "name": "font_hover",
+                                                                            "aria-label": "",
+                                                                            "type": "clone",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "clone": [
+                                                                                "field_671699bfb50a8"
+                                                                            ],
+                                                                            "display": "group",
+                                                                            "layout": "block",
+                                                                            "prefix_label": 0,
+                                                                            "prefix_name": 1
+                                                                        }
+                                                                    ]
                                                                 }
                                                             ],
                                                             "min": "",
@@ -1266,7 +1452,7 @@
                                         {
                                             "key": "field_672c146de4471",
                                             "label": "Class",
-                                            "name": "class",
+                                            "name": "image_class",
                                             "aria-label": "",
                                             "type": "text",
                                             "instructions": "",
@@ -1495,5 +1681,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731887890
+    "modified": 1733607874
 }

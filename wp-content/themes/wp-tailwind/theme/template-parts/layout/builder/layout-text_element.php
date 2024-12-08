@@ -28,10 +28,10 @@ $tag = get_html_tag($html_tag);
 $button_markup = get_button_markup($button, $style, $text, $class, $text_color, $lines, $text_area);
 ?>
 
-<<?php echo $tag; ?> style="background-color: <?php echo $background; ?>; color: <?php echo $text_color; ?>;"
+<<?php echo $tag; ?> style="background-color: <?php echo $background; ?>;"
   class="
   <?php echo esc_attr($class); ?> <?php echo esc_attr($args['width'] ?? ''); ?> items-center
-  relative flex p-8">
+  relative flex p-8 bg-[<?php echo $background; ?>] text-[<?php echo $text_color; ?>]">
 
   <?php if (!$button_markup) {
     echo '<span>' . $content . '</span>';
