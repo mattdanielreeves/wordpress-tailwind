@@ -46,3 +46,25 @@ wp-config.php
 # Note: If you wish to whitelist themes,
 # uncomment the next line
 # /wp-content/themes
+.gitignoreZone.Identifier
+index.phpZone.Identifier
+license.txtZone.Identifier
+LICENSEZone.Identifier
+readme.htmlZone.Identifier
+README.mdZone.Identifier
+wp-activate.phpZone.Identifier
+wp-blog-header.phpZone.Identifier
+wp-cli.pharZone.Identifier
+wp-comments-post.phpZone.Identifier
+wp-config-ddev.phpZone.Identifier
+wp-config-sample.phpZone.Identifier
+wp-config.phpZone.Identifier
+wp-cron.phpZone.Identifier
+wp-links-opml.phpZone.Identifier
+wp-load.phpZone.Identifier
+wp-login.phpZone.Identifier
+wp-mail.phpZone.Identifier
+wp-settings.phpZone.Identifier
+wp-signup.phpZone.Identifier
+wp-trackback.phpZone.Identifier
+xmlrpc.phpZone.Identifier
