@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package wp-tailwind
+ * @package wp_tw
  */
 
 /*
@@ -26,12 +26,12 @@ if ( post_password_required() ) {
 		?>
 		<h2>
 			<?php
-			$wp_tailwind_comment_count = get_comments_number();
-			if ( '1' === $wp_tailwind_comment_count ) {
+			$wp_tw_comment_count = get_comments_number();
+			if ( '1' === $wp_tw_comment_count ) {
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One comment on &ldquo;%1$s&rdquo;', 'wp-tailwind' ),
+					esc_html__( 'One comment on &ldquo;%1$s&rdquo;', 'wp_tw' ),
 					get_the_title()
 				);
 				// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -39,8 +39,8 @@ if ( post_password_required() ) {
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				printf(
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $wp_tailwind_comment_count, 'comments title', 'wp-tailwind' ) ),
-					number_format_i18n( $wp_tailwind_comment_count ),
+					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $wp_tw_comment_count, 'comments title', 'wp_tw' ) ),
+					number_format_i18n( $wp_tw_comment_count ),
 					get_the_title()
 				);
 				// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -55,7 +55,7 @@ if ( post_password_required() ) {
 			wp_list_comments(
 				array(
 					'style'      => 'ol',
-					'callback'   => 'wp_tailwind_html5_comment',
+					'callback'   => 'wp_tw_html5_comment',
 					'short_ping' => true,
 				)
 			);
@@ -69,7 +69,7 @@ if ( post_password_required() ) {
 		// message.
 		if ( ! comments_open() ) :
 			?>
-			<p><?php esc_html_e( 'Comments are closed.', 'wp-tailwind' ); ?></p>
+			<p><?php esc_html_e( 'Comments are closed.', 'wp_tw' ); ?></p>
 			<?php
 		endif;
 

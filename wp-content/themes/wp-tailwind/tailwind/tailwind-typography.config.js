@@ -1,3 +1,8 @@
+/**
+ * Tailwind Typography can only be configured via JavaScript, using a legacy
+ * configuration file like this one.
+ */
+
 // Copied from Tailwind Typography.
 const hexToRgb = (hex) => {
 	if (typeof hex !== 'string' || hex.length === 0) {
@@ -102,9 +107,9 @@ module.exports = {
 				 * scale. If you are adapting an existing design and you need
 				 * to set specific colors throughout, you can do so here. In
 				 * your `./theme/functions.php file, you will need to replace
-				 * `prose-neutral` with `prose-wp-tailwind`.
+				 * `-neutral` with `-wp_tw`.
 				 */
-				'wp-tailwind': {
+				wp_tw: {
 					css: {
 						'--tw-prose-body': theme('colors.foreground'),
 						'--tw-prose-headings': theme('colors.foreground'),

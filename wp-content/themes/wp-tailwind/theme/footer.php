@@ -6,23 +6,18 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package wp-tailwind
+ * @package wp_tw
  */
 
 ?>
 
-</div><!-- #content -->
+	</div><!-- #content -->
 
-<?php get_template_part(
-  'template-parts/layout/footer',
-  'content',
-  array('post_id' => 'footer')
-); ?>
+	<?php get_template_part( 'template-parts/layout/footer', 'content' ); ?>
 
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
 </body>
-
 </html>

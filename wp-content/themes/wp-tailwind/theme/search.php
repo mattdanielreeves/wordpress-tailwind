@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package wp-tailwind
+ * @package wp_tw
  */
 
 get_header();
@@ -20,7 +20,7 @@ get_header();
 				printf(
 					/* translators: 1: search result title. 2: search term. */
 					'<h1 class="page-title">%1$s <span>%2$s</span></h1>',
-					esc_html__( 'Search results for:', 'wp-tailwind' ),
+					esc_html__( 'Search results for:', 'wp_tw' ),
 					get_search_query()
 				);
 				?>
@@ -36,7 +36,7 @@ get_header();
 			endwhile;
 
 			// Previous/next page navigation.
-			wp_tailwind_the_posts_navigation();
+			wp_tw_the_posts_navigation();
 
 		else :
 

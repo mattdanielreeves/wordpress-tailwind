@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package wp-tailwind
+ * @package wp_tw
  */
 
 get_header();
@@ -23,11 +23,11 @@ get_header();
 					// Previous/next post navigation.
 					the_post_navigation(
 						array(
-							'next_text' => '<span aria-hidden="true">' . __( 'Next Post', 'wp-tailwind' ) . '</span> ' .
-								'<span class="sr-only">' . __( 'Next post:', 'wp-tailwind' ) . '</span> <br/>' .
+							'next_text' => '<span aria-hidden="true">' . __( 'Next Post', 'wp_tw' ) . '</span> ' .
+								'<span class="sr-only">' . __( 'Next post:', 'wp_tw' ) . '</span> <br/>' .
 								'<span>%title</span>',
-							'prev_text' => '<span aria-hidden="true">' . __( 'Previous Post', 'wp-tailwind' ) . '</span> ' .
-								'<span class="sr-only">' . __( 'Previous post:', 'wp-tailwind' ) . '</span> <br/>' .
+							'prev_text' => '<span aria-hidden="true">' . __( 'Previous Post', 'wp_tw' ) . '</span> ' .
+								'<span class="sr-only">' . __( 'Previous post:', 'wp_tw' ) . '</span> <br/>' .
 								'<span>%title</span>',
 						)
 					);

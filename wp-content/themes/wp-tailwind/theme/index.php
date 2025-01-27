@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package wp-tailwind
+ * @package wp_tw
  */
 
 get_header();
@@ -36,7 +36,7 @@ get_header();
 			}
 
 			// Previous/next page navigation.
-			wp_tailwind_the_posts_navigation();
+			wp_tw_the_posts_navigation();
 
 		} else {
 

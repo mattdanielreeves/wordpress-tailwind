@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package wp-tailwind
+ * @package wp_tw
  */
 
 get_header();
@@ -15,11 +15,11 @@ get_header();
 
 			<div>
 				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Page Not Found', 'wp-tailwind' ); ?></h1>
+					<h1 class="page-title"><?php esc_html_e( 'Page Not Found', 'wp_tw' ); ?></h1>
 				</header><!-- .page-header -->
 
-				<div <?php wp_tailwind_content_class( 'page-content' ); ?>>
-					<p><?php esc_html_e( 'This page could not be found. It might have been removed or renamed, or it may never have existed.', 'wp-tailwind' ); ?></p>
+				<div <?php wp_tw_content_class( 'page-content' ); ?>>
+					<p><?php esc_html_e( 'This page could not be found. It might have been removed or renamed, or it may never have existed.', 'wp_tw' ); ?></p>
 					<?php get_search_form(); ?>
 				</div><!-- .page-content -->
 			</div>
