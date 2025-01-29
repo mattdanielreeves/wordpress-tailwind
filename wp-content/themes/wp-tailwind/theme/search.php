@@ -4,23 +4,23 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package wp_tw
+ * @package wp_tailwind
  */
 
 get_header();
 ?>
 
-	<section id="primary">
-		<main id="main">
+<section id="primary">
+	<main id="main">
 
-		<?php if ( have_posts() ) : ?>
+		<?php if (have_posts()): ?>
 
 			<header class="page-header">
 				<?php
 				printf(
 					/* translators: 1: search result title. 2: search term. */
 					'<h1 class="page-title">%1$s <span>%2$s</span></h1>',
-					esc_html__( 'Search results for:', 'wp_tw' ),
+					esc_html__('Search results for:', 'wp_tailwind'),
 					get_search_query()
 				);
 				?>
@@ -28,25 +28,25 @@ get_header();
 
 			<?php
 			// Start the Loop.
-			while ( have_posts() ) :
+			while (have_posts()):
 				the_post();
-				get_template_part( 'template-parts/content/content', 'excerpt' );
+				get_template_part('template-parts/content/content', 'excerpt');
 
 				// End the loop.
 			endwhile;
 
 			// Previous/next page navigation.
-			wp_tw_the_posts_navigation();
+			wp_tailwind_the_posts_navigation();
 
-		else :
+		else:
 
 			// If no content is found, get the `content-none` template part.
-			get_template_part( 'template-parts/content/content', 'none' );
+			get_template_part('template-parts/content/content', 'none');
 
 		endif;
 		?>
-		</main><!-- #main -->
-	</section><!-- #primary -->
+	</main><!-- #main -->
+</section><!-- #primary -->
 
 <?php
 get_footer();

@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package wp-tailwind
+ * @package wp_tailwind
  */
 
 ?>
@@ -13,16 +13,16 @@
 
 	<header class="entry-header">
 		<?php
-		if ( is_sticky() && is_home() && ! is_paged() ) {
-			printf( '%s', esc_html_x( 'Featured', 'post', 'wp-tailwind' ) );
+		if (is_sticky() && is_home() && !is_paged()) {
+			printf('%s', esc_html_x('Featured', 'post', 'wp_tailwind'));
 		}
-		the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+		the_title(sprintf('<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h2>');
 		?>
 	</header><!-- .entry-header -->
 
 	<?php wp_tailwind_post_thumbnail(); ?>
 
-	<div <?php wp_tailwind_content_class( 'entry-content' ); ?>>
+	<div <?php wp_tailwind_content_class('entry-content'); ?>>
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-content -->
 

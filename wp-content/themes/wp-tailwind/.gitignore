@@ -11,7 +11,7 @@ style-editor.css
 style-editor-extra.css
 
 # Ignore the generated zip file:
-wp_tw.zip
+wp_tailwind.zip
 
 # Ignore .DS_Store files from macOS:
 .DS_Store

@@ -107,9 +107,9 @@ module.exports = {
 				 * scale. If you are adapting an existing design and you need
 				 * to set specific colors throughout, you can do so here. In
 				 * your `./theme/functions.php file, you will need to replace
-				 * `-neutral` with `-wp_tw`.
+				 * `-neutral` with `-wp_tailwind`.
 				 */
-				wp_tw: {
+				wp_tailwind: {
 					css: {
 						'--tw-prose-body': theme('colors.foreground'),
 						'--tw-prose-headings': theme('colors.foreground'),

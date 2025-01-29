@@ -33,4 +33,13 @@
 	/**
 	 * Add your theme below:
 	 */
+	--max-w-1/4: 25%;
+
+	--gap-standard-gap: 24px;
+
+	--m--half-screen: -50vw;
+
+	--font-noto: 'Noto', 'serif';
+
+	--font-lato: 'Lato', 'sans serif';
 }
