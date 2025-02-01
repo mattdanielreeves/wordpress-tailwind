@@ -23,8 +23,8 @@ wp-config.php
 # Example themes
 !/wp-content/themes/wp-tailwind/
 !/wp-content/themes/wp-tailwind/*
-!/wp-content/themes/wp-tailwind_old/
-!/wp-content/themes/wp-tailwind_old/*
+!/wp-content/themes/wp-tailwind_3/
+!/wp-content/themes/wp-tailwind_3/*
 # Example plugin
 /wp-content/plugins/hello.php
 
