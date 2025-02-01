@@ -1,13 +1,14 @@
 <?php
+
 /**
- * wp_tailwind functions and definitions
+ * wp-tailwind functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package wp_tailwind
+ * @package wp-tailwind
  */
 
-if (!defined('wp_tailwind_VERSION')) {
+if (! defined('WP_TAILWIND_VERSION')) {
 	/*
 	 * Set the theme’s version number.
 	 *
@@ -15,10 +16,10 @@ if (!defined('wp_tailwind_VERSION')) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define('wp_tailwind_VERSION', '0.1.0');
+	define('WP_TAILWIND_VERSION', '0.1.0');
 }
 
-if (!defined('wp_tailwind_TYPOGRAPHY_CLASSES')) {
+if (! defined('WP_TAILWIND_TYPOGRAPHY_CLASSES')) {
 	/*
 	 * Set Tailwind Typography classes for the front end, block editor and
 	 * classic editor using the constant below.
@@ -37,12 +38,12 @@ if (!defined('wp_tailwind_TYPOGRAPHY_CLASSES')) {
 	 * initializes.
 	 */
 	define(
-		'wp_tailwind_TYPOGRAPHY_CLASSES',
+		'WP_TAILWIND_TYPOGRAPHY_CLASSES',
 		'prose prose-neutral max-w-none prose-a:text-primary'
 	);
 }
 
-if (!function_exists('wp_tailwind_setup')):
+if (! function_exists('wp_tailwind_setup')) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -55,10 +56,10 @@ if (!function_exists('wp_tailwind_setup')):
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on wp_tailwind, use a find and replace
-		 * to change 'wp_tailwind' to the name of your theme in all the template files.
+		 * If you're building a theme based on wp-tailwind, use a find and replace
+		 * to change 'wp-tailwind' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain('wp_tailwind', get_template_directory() . '/languages');
+		load_theme_textdomain('wp-tailwind', get_template_directory() . '/languages');
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support('automatic-feed-links');
@@ -81,8 +82,8 @@ if (!function_exists('wp_tailwind_setup')):
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'menu-1' => __('Primary', 'wp_tailwind'),
-				'menu-2' => __('Footer Menu', 'wp_tailwind'),
+				'menu-1' => __('Primary', 'wp-tailwind'),
+				'menu-2' => __('Footer Menu', 'wp-tailwind'),
 			)
 		);
 
@@ -131,13 +132,13 @@ function wp_tailwind_widgets_init()
 {
 	register_sidebar(
 		array(
-			'name' => __('Footer', 'wp_tailwind'),
-			'id' => 'sidebar-1',
-			'description' => __('Add widgets here to appear in your footer.', 'wp_tailwind'),
+			'name'          => __('Footer', 'wp-tailwind'),
+			'id'            => 'sidebar-1',
+			'description'   => __('Add widgets here to appear in your footer.', 'wp-tailwind'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget' => '</section>',
-			'before_title' => '<h2 class="widget-title">',
-			'after_title' => '</h2>',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
 		)
 	);
 }
@@ -148,8 +149,8 @@ add_action('widgets_init', 'wp_tailwind_widgets_init');
  */
 function wp_tailwind_scripts()
 {
-	wp_enqueue_style('wp_tailwind-style', get_stylesheet_uri(), array(), wp_tailwind_VERSION);
-	wp_enqueue_script('wp_tailwind-script', get_template_directory_uri() . '/js/script.min.js', array(), wp_tailwind_VERSION, true);
+	wp_enqueue_style('wp-tailwind-style', get_stylesheet_uri(), array(), WP_TAILWIND_VERSION);
+	wp_enqueue_script('wp-tailwind-script', get_template_directory_uri() . '/js/script.min.js', array(), WP_TAILWIND_VERSION, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
@@ -164,16 +165,16 @@ function wp_tailwind_enqueue_block_editor_script()
 {
 	if (is_admin()) {
 		wp_enqueue_script(
-			'wp_tailwind-editor',
+			'wp-tailwind-editor',
 			get_template_directory_uri() . '/js/block-editor.min.js',
 			array(
 				'wp-blocks',
 				'wp-edit-post',
 			),
-			wp_tailwind_VERSION,
+			WP_TAILWIND_VERSION,
 			true
 		);
-		wp_add_inline_script('wp_tailwind-editor', "tailwindTypographyClasses = '" . esc_attr(wp_tailwind_TYPOGRAPHY_CLASSES) . "'.split(' ');", 'before');
+		wp_add_inline_script('wp-tailwind-editor', "tailwindTypographyClasses = '" . esc_attr(WP_TAILWIND_TYPOGRAPHY_CLASSES) . "'.split(' ');", 'before');
 	}
 }
 add_action('enqueue_block_assets', 'wp_tailwind_enqueue_block_editor_script');
@@ -186,7 +187,7 @@ add_action('enqueue_block_assets', 'wp_tailwind_enqueue_block_editor_script');
  */
 function wp_tailwind_tinymce_add_class($settings)
 {
-	$settings['body_class'] = wp_tailwind_TYPOGRAPHY_CLASSES;
+	$settings['body_class'] = WP_TAILWIND_TYPOGRAPHY_CLASSES;
 	return $settings;
 }
 add_filter('tiny_mce_before_init', 'wp_tailwind_tinymce_add_class');

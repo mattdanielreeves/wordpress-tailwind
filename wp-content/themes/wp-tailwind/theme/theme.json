@@ -1,7 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 3,
+	"version": 2,
 	"settings": {
+		"appearanceTools": true,
 		"color": {
 			"palette": [
 				{
@@ -28,12 +29,22 @@
 					"slug": "tertiary",
 					"color": "#0369a1",
 					"name": "Tertiary"
+				},
+				{
+					"slug": "accent",
+					"color": "#f0f0f0",
+					"name": "Accent"
+				},
+				{
+					"slug": "highlight",
+					"color": "#dddddd",
+					"name": "Highlight"
 				}
 			]
 		},
 		"layout": {
-			"contentSize": "40rem",
-			"wideSize": "60rem"
+			"contentSize": "100%",
+			"wideSize": "100%"
 		}
 	}
 }
