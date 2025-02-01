@@ -1,0 +1,85 @@
+{
+    "key": "group_67107c1a828ed",
+    "title": "Footer Options",
+    "fields": [
+        {
+            "key": "field_6732530b8f846",
+            "label": "Footer Minimum Height",
+            "name": "footer_height",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "auto": "Auto",
+                "25dvh": "Quarter",
+                "50dvh": "Half",
+                "75dvh": "Three Quarters",
+                "100dvh": "Full"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_673268627b73c",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_671699bfb50a8"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1,
+            "choices": {
+                "bg-neutral-100": "Neutral",
+                "bg-red-500": "Red",
+                "bg-green-500": "Green",
+                "bg-blue-500": "Blue",
+                "bg-yellow-500": "Yellow",
+                "bg-purple-500": "Purple"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "footer-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1731356803
+}

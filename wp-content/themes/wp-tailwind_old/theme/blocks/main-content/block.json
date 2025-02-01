@@ -1,0 +1,39 @@
+{
+  "name": "acf/main-content",
+  "title": "Main Content Block",
+  "description": "A custom content block that uses ACF fields.",
+  "style": [
+    "file:./main-content.css"
+  ],
+  "category": "Theme",
+  "icon": "admin-wrench",
+  "keywords": [
+    "main content"
+  ],
+  "apiVersion": 2,
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "main-content.php"
+  },
+  "supports": {
+    "jsx": true,
+    "anchor": true,
+    "align": true,
+    "alignText": true,
+    "fullHeight": true,
+    "alignContent": "matrix",
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "color": {
+      "background": true,
+      "text": true,
+      "link": false
+    },
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true
+    }
+  }
+}
